@@ -1,49 +1,101 @@
 use master;
 
-if DB_ID ('taskList_Kiryshin') IS NOT NULL
-drop database taskList_Kiryshin;
+if DB_ID ('virtual_enterprise') IS NOT NULL
+drop database virtual_enterprise;
+create database virtual_enterprise
+go
+use virtual_enterprise
 
-create database taskList_Kiryshin
-
-use taskList_Kiryshin
-
-create table Users
+create table VirtualEnterprise
 (
-	user_login nvarchar(128)  primary key not null
+	idVE int identity  primary key not null
+	,name nvarchar(128) not null
 )
 
-create table Tasks
+create table Employees
 (
-	id_task int identity primary key not null
-	,name_task nvarchar(512) not null
-	,deadline date
-	,user_login nvarchar(128) not null
-	,deleted bit not null
-	,time_when_task_completed datetime
+	employeeId int identity primary key not null
+	,name nvarchar(32) not null
+	,family nvarchar(64) not null
+	,patronymic nvarchar(64) not null
+	,mail nvarchar(64) not null
+	,passwordEmployee nvarchar(32) not null 
 )
 	
 
-create table Tasks_Marks(
-	id_task int  not null
-	,id_mark int not null)
+create table CompanyEmployee(
+	idCompanyEmployee int identity primary key not null
+	,idEmployee int not null
+	,idVE int not null	
+	)
 						
-create table Marks(
-id_mark int identity primary key not null
-,name_mark nvarchar(128) not null)
+create table Project(
+idProject int identity primary key not null
+,name nvarchar(64) not null
+,deadline datetime
+,idVE int not null
+)
 
-alter table	Tasks	
-	add	constraint FK_User_Bring_The_Task
-	foreign key(user_login) 
-	references Users(user_login)
-	on delete cascade
-	on update cascade
+create table Tasks(
+taskId int identity primary key not null
+,name nvarchar(128) not null
+,deadline datetime
+,percentageCompletition int
+,idExecutor int
+,idProject int not null
+)
 
-				
-alter table	Tasks_Marks	
-	add	constraint PK_Tasks_Marks primary key  (id_task,id_mark), 
-	constraint FK_Tasks_Marks foreign key  (id_task)
-	references Tasks(id_task)
+create table Mesage(
+idMessage int identity primary key not null
+,content nvarchar(1024) not null
+,idDialogue int not null
+)
+
+create table Subscription(
+idSubscription int identity primary key not null
+,idSignedEmployee int not null
+,idFellowEmployee int not null
+)
+create table Dialogue(
+idDialogue int identity primary key not null
+,idFirstEmployee int not null
+,idSecondEmployee int not null
+)
+
+alter table	CompanyEmployee	
+	add	constraint FK_IdEmployee
+	foreign key(idEmployee) 
+	references Employees(employeeId)
 	on delete cascade,
-	constraint FK_Tasks_Marks1 foreign key  (id_mark)
-	references Marks(id_mark)
+	constraint FK_idVE
+    foreign key  (idVE)
+	references virtualEnterprise(idVE)
 	on delete cascade	
+			
+alter table	Project	
+	add	constraint FK_project_IdVE
+	foreign key(idVE) 
+	references virtualEnterprise(idVE)
+	on delete cascade
+	
+alter table	Tasks	
+	add	constraint FK_idProject
+	foreign key(idProject) 
+	references Project(idProject)
+	on delete cascade
+	
+alter table	Mesage	
+	add	constraint FK_idDialogue
+	foreign key(idDialogue) 
+	references Dialogue(idDialogue)
+	on delete cascade	
+	
+alter table	Subscription
+	add	constraint FK_idSignedEmployee
+	foreign key(idSignedEmployee) 
+	references Employees(employeeId)
+	on delete no action,
+	constraint FK_idFellowEmployee
+    foreign key  (idFellowEmployee)
+	references Employees(employeeId)
+	on delete cascade			
