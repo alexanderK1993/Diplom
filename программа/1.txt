@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Роман</title>
+    <link id="favicon" href="/Content/images/favicon_white.png" rel="shortcut icon" type="image/x-icon" />
+    
+    <meta charset="utf-8" />
+
+    <link href="/Content/site?v=fnvEl63mvQkiF7nnZ-h0q7-zpgNW5rGJ7aV8Ina0E3k1" rel="stylesheet"/>
+<link href="/bundles/css/project.less?v=sReWL09uMVqLf4SrlKh9YP3mX5QgXYcpHUHuDbchfFw1" rel="stylesheet"/>
+<link href="/bundles/css/ui-combobox.less?v=SP7Eo5yD-T2ETjY8cT5cXveQIZ96P4le8VpUP7FeZkY1" rel="stylesheet"/>
+
+
+    <script src="/bundles/settings?v=F7p71luti6J7s5n8kkNfTIcfMWAsWeuaUK5Y8kQ0spI1"></script>
+<script src="/bundles/modernizr?v=qVODBytEBVVePTNtSFXgRX0NCEjh9U_Oj8ePaSiRcGg1"></script>
+<script src="/bundles/jquery?v=dAyO85IDNXnaU28KNjTNtaQyI3aXD_QEF-hKdWfH80I1"></script>
+<script src="/bundles/jqueryui?v=yYqRCIHLBHJ7VXeFXcnDOJBsq49iW5jBRsotOgbKlC41"></script>
+<script src="/bundles/jqueryplugins?v=WVF5SXNoB5jcnHnkgNREpufszhN8FwKCSMdBZhh3sis1"></script>
+<script src="/bundles/synk?v=An9aWKZQq_lmWUiBKq1EvZg-YV9JVjguSaM_T5OUgno1"></script>
+<script src="/bundles/common?v=ExwKoaR5zrnK_T3eY9x0m5hCEHddvtutNDiTXdd2L501"></script>
+<script src="/bundles/jquery-ui-combobox?v=ZNJoZaoWKrTrmBq2p3-DsQhmW20qYFaa-OR9Sc6ov0o1"></script>
+<script src="/bundles/widget?v=fORFAaJ0OfEq3CgEF_7tsuJU3MDugDdYgj7DXZg-DgQ1"></script>
+<script src="/bundles/signalR?v=jwbbch-AHNJP_udS1t3djtZMF4U402naZWpkL0Qdjs01"></script>
+<script src="/signalr/hubs"></script>
+<script src="/bundles/signalRClient?v=DgACPu4wtqGykkLHooDa8tvKXt652QS56b9JuMNPNEc1"></script>
+<script src="/bundles/underscore?v=MaBs32OjyRVNiG2ctjK9NK4Ci0Cc0IRTxEVkICfN4sk1"></script>
+
+
+    <script>
+        signalRClient.addListener('monitorActivity', function () { });
+
+        signalRClient.addListener('memberBlocked', function () {
+            location.reload();
+        });
+
+        signalRClient.addListener('memberAuthenticationDataUpdated', function (changedOwnAddress) {
+            var message = changedOwnAddress
+                ? 'Адрес E-mail успешно изменён. Теперь вы можете войти, используя его в качестве логина.'
+                : 'Ваш адрес E-mail был изменён. Обновите страницу, чтобы войти под новым адресом.';
+            $('#auth-data-changed-text').text(message);
+            $('#AuthenticationDataChangedIndicator').show();
+            faviconManager.changeFavicon(true);
+        });
+
+        signalRClient.addListener('passwordChanged', function () {
+            location.href = '/logout';
+        });
+
+        signalRClient.addListener('companyRenamed', function (newHost) {
+            showCompanyRenamedInformation(newHost);
+        });
+
+        _highlightTags = JSON.parse('[{"Id":"19cc8575-640f-49b5-871f-084b69675df4","Text":"high","Color":"#E06666"},{"Id":"dcbde261-ce3c-4ebd-b8d8-0c5474df4493","Text":"bug(-\\\\d+)?","Color":"#EE6622"},{"Id":"fb3497fd-e262-49db-90be-115a03efe207","Text":"бета","Color":"#E06666"},{"Id":"ca71eeaf-0f62-4818-94be-241a340fbe4c","Text":"immediately","Color":"#CC0000"},{"Id":"82c526f7-9faf-42d1-a4de-288ceb521914","Text":"^\\\\?{2}$","Color":"#EE6622"},{"Id":"a7537a0a-20db-4bf4-9c58-2bac5cb73ebf","Text":"периодическая","Color":"#12B9E3"},{"Id":"3d115003-f8f4-4541-827d-417257e6beb6","Text":"test","Color":"#8E7CC3"},{"Id":"c7a135d5-4008-44e0-a40a-46d3816ffcbe","Text":"тест","Color":"#8E7CC3"},{"Id":"0f282596-1bb1-47a3-92ea-56133575101e","Text":"feature","Color":"#55CC25"},{"Id":"f9bdc302-848f-4cd2-a4c3-606afedb0eb0","Text":"релиз","Color":"#CC0000"},{"Id":"896db8e4-4404-4058-900b-6b91794bb26d","Text":"urgent","Color":"#CC0000"},{"Id":"0caed105-35c9-4327-a62b-717b9d65b7f6","Text":"^1{4}$","Color":"#CC0000"},{"Id":"01f2e47e-f78c-4bec-9081-72275a5a9ec1","Text":"срочно","Color":"#CC0000"},{"Id":"9c6e1a15-25b9-49c5-8cdb-7bfa624f9228","Text":"^\\\\?{3}$","Color":"#CC0000"},{"Id":"6ff0b2c0-6233-4e71-b9a4-7d5fa129d4a5","Text":"^\\\\?{1}$","Color":"#CCAA33"},{"Id":"73ed6d2e-0ac4-4ea4-9a12-878ff6986bbc","Text":"нормальный","Color":"#EA9999"},{"Id":"e4cd2e1a-88eb-4557-b53a-8ea242db423f","Text":"^!{3}$","Color":"#CC0000"},{"Id":"0223ed1d-f61b-4528-bc19-91994acc022a","Text":"normal","Color":"#EA9999"},{"Id":"96f0aec4-03e9-4fad-8b10-925b17ce27d1","Text":"release","Color":"#CC0000"},{"Id":"c6ae99ec-918f-464d-94f4-a16c683ae5dc","Text":"low","Color":"#F4CCCC"},{"Id":"44db2c56-549d-4919-8b7c-a70291107144","Text":"альфа","Color":"#EA9999"},{"Id":"95143fcd-7853-4ca5-9702-abb4e73e01a9","Text":"alpha","Color":"#EA9999"},{"Id":"9d3e0b89-fbd7-487f-8e3f-b07003c88c28","Text":"alfa","Color":"#EA9999"},{"Id":"5d32e175-daa5-4a6d-853e-b28d728e2d6e","Text":"жук","Color":"#EE6622"},{"Id":"b1a802a3-733f-4bd8-89d7-b52b65d64427","Text":"beta","Color":"#E06666"},{"Id":"8e335ad6-cdcb-405d-b206-bdb3f238e995","Text":"низкий","Color":"#F4CCCC"},{"Id":"db21e111-4daf-4996-abb4-c068a81d1eb5","Text":"высокий","Color":"#E06666"},{"Id":"db30cf4a-d2d3-4392-a98b-cb62393b0c57","Text":"согласование","Color":"#F4CCCC"},{"Id":"e45fe518-d8a2-4659-8e11-cef1d8e4e983","Text":"баг","Color":"#EE6622"},{"Id":"d8fc1e70-d6f9-4846-9d5a-d3a5464ae047","Text":"важно","Color":"#EE6622"},{"Id":"3fdc51cf-e383-467d-a1d7-dee34c1fd7be","Text":"agreement","Color":"#F4CCCC"},{"Id":"c74379db-0b14-44a5-9fc5-ef039030a47a","Text":"немедленно","Color":"#CC0000"},{"Id":"14707a38-b746-464e-8cfc-f1449496364c","Text":"^!{2}$","Color":"#EE6622"},{"Id":"2cbc6ebb-a45e-4153-9e04-f412aac265e5","Text":"^!{1}$","Color":"#CCAA33"},{"Id":"a1e0394d-f1dd-4c7a-bc67-f91bd1f45c4d","Text":"фича","Color":"#55CC25"}]');
+        _highlightTagsWithoutRegex = [
+            {
+                Text: "bug"
+            },
+            {
+                Text: "feature"
+            },
+            {
+                Text: "?"
+            }
+        ];
+
+        
+        var urlRoot = '/';
+
+        var SynkraGlobalContext = {
+            scheduledTaskToggleTitle: {
+                false: 'Включить генерацию задачи по расписанию',
+                true: 'Выключить генерацию задачи по расписанию'
+            }
+        };
+
+        $(document).ready(function () {
+            var indicator = Object.create(createProjectChangeIndicator({
+                button: '.close-indicator-button',
+                container: '#ListChangedIndicator'
+            }));
+
+            var authenticationDataChangeIndicator = Object.create(createProjectChangeIndicator({
+                button: '#close-auth-indicator-button',
+                container: '#AuthenticationDataChangedIndicator'
+            }));
+
+            var companyRenamedIndicator = Object.create(createCompanyRenamedIndicator({
+                button: '#close-company-renamed-indicator-button',
+                container: '#company-renamed-indicator'
+            }));
+
+            var topMenu = new TopMenu();
+
+            $(document).ajaxError(function (event, request) {
+                if (request.status == 403) {
+                    location.reload();
+                } else if (request.status == 503) {
+                    location.replace(location);
+                }
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        .Remove {
+            background: url('/content/images/ico_delete_light.png') no-repeat;
+        }
+        .Remove:hover {
+            background: url('/content/images/ico_delete_grey.png');
+        }
+        .ajaxloader {
+            background-image: url('/Content/images/ajax-loader.gif');
+        }
+        .pull-and-push {
+            background-image: url('/Content/images/triangle.png');
+        }
+         .icon {
+            background-image: url('/Content/images/icons-sprite-18x18.png');
+        }
+        .ico,
+        .checkbox:checked + .label-checkbox {
+            background-image: url('/Content/images/icons_16x16.png');
+        }
+        .top-timer-icon {
+            background-image: url('/Content/images/icons_20x20.png');
+        }
+    </style>
+
+    
+
+<script>
+    // для Intellisense
+    var taskurls = { get: function (urlName) { } };
+
+    
+                    var taskurls = {};
+                    taskurls.internalDictionary = function(){
+                        return {
+                            "GetTask": "/task/get",
+"GetTaskForEdit": "/task/getforedit",
+"EditTask": "/task/edittask",
+"DeleteTask": "/task/delete",
+"ToggleTaskCompleted": "/task/toggle",
+"GetMemberTasks": "/task/getmembertasks",
+"GetProjectTasks": "/task/getprojecttasks",
+"GetMemberTasksByDeadline": "/task/getmembertasksbydeadline",
+"GetReopenGroup": "/taskgroup/reopen",
+"DeleteMemberTaskGroup": "/taskgroup/member/delete",
+"GetCompleteByMemberAndDate": "/task/member/completed",
+"GetCompletedTasks": "/task/getcompleted",
+"GetCompletedTasksByMemberGroup": "/task/member/getcompleted",
+"GetCurrentDayCompletedTasks": "/task/getcompleted/today",
+"GetCompletedByDeadline": "/task/getcompleted/bydeadline",
+"AddResponsibleMember": "/task/member/add",
+"ChangeMember": "/task/member/change",
+"SetDeadline": "/task/deadline/set",
+"GetMember": "/member/getbycriteria",
+"GetTimeCurrentDay": "/member/worklog/sum",
+"StartTask": "/task/start",
+"StopActiveTask": "/task/stop",
+"GetActiveTaskTime": "/task/getactivetime",
+"CreateWorkLog": "/task/createworklog",
+"GetWorklog": "/task/getworklog",
+"SetMemberTaskGroupAndPriority": "/task/member/priority",
+"SetProjectTaskPriority": "/task/project/priority",
+"SetTaskGroupPriority": "/taskgroup/priority",
+"DeleteTaskGroup": "/taskgroup/project/delete",
+"EditTaskGroup": "/taskgroup/edit",
+"CreateTaskGroup": "/taskgroup/create",
+"GetTaskGroups": "/taskgroup/gettaskgroups",
+"ValidateTaskGroupName": "/taskgroup/validate",
+"CompletedGroups": "/taskgroup/project/completed",
+"CreateMemberTaskGroup": "/taskgroup/member/create",
+"SetMemberGroupPriority": "/taskgroup/member/priority",
+"GetCalendarByDaysCount": "/calendars/get",
+"ToggleTaskGroupState": "/taskgroup/toggle",
+"ToggleCalendarGroupState": "/taskgroup/calendar/toggle",
+"GetScheduledTaskForEdit": "/scheduledtask/getforedit",
+"EditScheduledTask": "/scheduledtask/edittask",
+"DeleteScheduledTask": "/scheduledtask/delete",
+"ToggleScheduledTask": "/scheduledtask/toggle",
+"GenerateScheduledTask": "/scheduledtask/generate",
+"ToggleScheduledTaskGroupState": "/taskgroup/scheduledtasks/toggle",
+"CreateProject": "/company/project/create"
+                        };
+                    };
+                    taskurls.get = function(val){
+                        return taskurls.internalDictionary()[val];
+                    };
+                
+</script>
+
+<script>
+    // для Intellisense
+    var memberurls = { get: function (urlName) { } };
+
+    
+                    var memberurls = {};
+                    memberurls.internalDictionary = function(){
+                        return {
+                            "GetBlockMember": "/member/get",
+"GetTimeCurrentDay": "/member/worklog/sum"
+                        };
+                    };
+                    memberurls.get = function(val){
+                        return memberurls.internalDictionary()[val];
+                    };
+                
+</script>
+
+
+    <script src="/bundles/jqueryformplugins?v=oXch6XHp6aDFx5JiX-mBkjhxN5Cr5v3c9fm9e2CL7aI1"></script>
+<script src="/bundles/task-common?v=xZ7BbleS62JOCXeN3lBR8FnMaqdTgL9UlJ7p_1RAJZo1"></script>
+<script src="/bundles/jquery-linq?v=F09T7vEesk_e0Jt5ZJRIusxBaCkhhLY6fBaYd7vmU4M1"></script>
+<script src="/bundles/task-member?v=QPXtwlyIQk1ElnUQHEk0JINcmGSFNwCS7Y0a6ZeWkrE1"></script>
+
+    
+<script src="/bundles/worklog?v=hmgoooawy7DAgEUDveX2uttmjfWgIo-iNbWlaAusWB01"></script>
+<script src="/bundles/member-worklog?v=daCugesP5MDu8031P3-uEQPBUC43HSqdGrIloaLk6ng1"></script>
+
+
+
+
+    <script type="text/javascript">
+        var tasksPageMemberId = '8af73410-5fe6-4a9d-9e4f-9a92b0049113';
+        var isDeadlineTimePluginEnabled = 'False' == 'True';
+        var isScheduledTasksPluginEnabled = 'False' == 'True';
+
+        synk.bind('memberTaskChangedIndicator', { id: '8af73410-5fe6-4a9d-9e4f-9a92b0049113' });
+
+        var taskState = {
+            isDownloaded: false
+        };
+
+        var model = {
+            memberId: '8af73410-5fe6-4a9d-9e4f-9a92b0049113',
+            encodedMemberId: 'yxfwsmnz9e33aays2oc4tyn5t1po',
+            groupCollection: new Task.Models.ObservableCollection(),
+            taskCollection: new Task.Models.ObservableCollection(),
+            scheduledTasksCollection: new Task.Models.ObservableCollection(),
+            defaultProject: {},
+
+            init: function () {
+                var taskRepository = new TaskRepository();
+                var initModel = function (data) {
+                    if (data && !taskState.isDownloaded) {
+                        var scheduledTasksGroup = data.ScheduledTasksGroup;
+                        var scheduledTasks = scheduledTasksGroup ? scheduledTasksGroup.Tasks : null;
+                        $(document).trigger('scheduledTaskGroup.init', scheduledTasksGroup);
+                        model.taskCollection.addAll(data.Tasks);
+                        model.scheduledTasksCollection.addAll(scheduledTasks);
+                        model.groupCollection.addAll(data.Groups);
+                        model.defaultProject.Id = data.DefaultProjectId;
+                        taskState.isDownloaded = true;
+                        $(document).ready(function () { $('.group-operations').show(); });
+                    }
+                };
+
+                var failed = 0;
+                var getTasksAfterTimeout = function (interval) {
+                    var getTasks = function () {
+                        taskRepository.getMemberTasks('8af73410-5fe6-4a9d-9e4f-9a92b0049113').done(initModel).fail(function () {
+                            if (++failed < 3) {
+                                getTasksAfterTimeout(1000);
+                            } else {
+                                $('#error-box').errorBox().show('Не удалось загрузить задачи');
+                                $('#tasklists-container').empty();
+                            }
+                        }).then(SynkraUi.stickRightPanel);
+                    };
+
+                    if (!interval) {
+                        getTasks();
+                    } else {
+                        setTimeout(getTasks, interval);
+                    }
+                };
+                getTasksAfterTimeout(false);
+            }
+        };
+        model.init();
+
+        var taskCreator = new TaskCreator({
+            memberId: "8af73410-5fe6-4a9d-9e4f-9a92b0049113",
+            availableTags: "bug,важно,срочно",
+            groupIdField: "MemberGroupId",
+            taskCollection: model.taskCollection,
+            defaultProject: model.defaultProject,
+            unchangeableResponsibleId: true,
+        });
+        taskCreator.init();
+
+        synk.bind('taskList', model);
+        synk.bind('groupCreator', model);
+
+        $(document).ready(function() {
+            $('#main-menu-item-todo').addClass('current');
+
+            var taskProjectList = new MemberProjectList();
+            var highlighter = new Highlighter();
+
+                 var memberWorklog = new MemberWorklog('8af73410-5fe6-4a9d-9e4f-9a92b0049113', 'yxfwsmnz9e33aays2oc4tyn5t1po');
+            
+            $('.c-member-projects #MemberId').val('8af73410-5fe6-4a9d-9e4f-9a92b0049113');
+
+            ViewDatePicker($('.date-picker'), false);
+
+            $('.project-name-wrapper').mouseenter(function () {
+                $(this).find('.icon').show();
+            });
+            $('.project-name-wrapper').mouseleave(function () {
+                $(this).find('.icon').hide();
+            });
+        });
+    </script>
+
+    
+</head>
+<body>
+    <div class="top-panel-container">
+        <div id="top-panel-menu" class="top-panel">
+            <ul class="h-list breadcrumps">
+                <li class="crumb">
+                    <span class="crumb-company-name">
+                        Demo 145
+                    </span>
+                </li>
+                <li id="projectsmenu" class="crumb crumb-project-menu-item crumb-current">
+                    <div class="c-toggle-projects-menu icon-link-container">
+                        <span class="main-menu-additional-item ">Перейти к проекту</span>
+                        <span class="icon icon-arrow-down"></span>
+                    </div>
+
+                    
+
+                    <div id="projectMenuList" class="top-submenu hidden">
+                        <div class="top-submenu-tail">
+                            <div class="top-submenu-tail-body"></div>
+                        </div>
+                        <div class="top-submenu-item-box">
+                            <div class="top-submenu-item-subbox">
+                                    <div class="top-submenu-item">
+                                        <a href="/project/rememberthebread" class="ui-projectsmenu-item">
+                                            Планировщик задач
+                                        </a>
+                                    </div>
+                                
+                                    <div id="archivedProjectsLink" class="top-submenu-item top-submenu-pseudo">
+                                        <a href="#">
+                                            <span class="link-text">Показать</span><br />
+                                            завершённые проекты
+                                        </a>
+                                    </div>
+                                    <div class="top-submenu-item archived-project ">
+                                        <a href="/project/quickstart" class="ui-projectsmenu-item">
+                                            Демо Синкры
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="account-info c-account-info">
+
+
+     
+        
+        
+        <div class="c-toggle-logon-menu icon-link-container" style="cursor: pointer;">
+            <span class="c-username-link username-link main-menu-additional-item">Роман</span>
+        </div>
+        
+        <div id="logonMenu" class="top-submenu top-submenu-logon hidden">
+            <div class="top-submenu-tail">
+                <div class="top-submenu-tail-body"></div>
+            </div>
+            <div class="top-submenu-item-box">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item first">
+                        <a class="ui-projectsmenu-item" href="/account/manage">Профиль</a>
+                    </div>
+                </div>
+            </div>
+            <div class="top-submenu-item-box">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item">
+                        <a class="ui-projectsmenu-item" href="/settings/company">Настройки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="top-submenu-item-box exit-button">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item last">
+                        <a class="ui-projectsmenu-item" href="/logout">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+                <input id="app-memberId" type="hidden" value="8af73410-5fe6-4a9d-9e4f-9a92b0049113" />
+            </div>
+
+                <div class="top-timer zero-width">
+                    <div class="c-top-timer hidden-content">
+                        <div class="c-top-timer-time top-timer-time">
+                        </div>
+                        <div class="c-top-timer-icon top-timer-icon">
+                        </div>
+                    </div>
+                </div>
+            
+            <ul id='main-menu' class='h-list main-menu'>
+                <li class='main-menu-item' id='main-menu-item-todo'>
+                    <a href='/todo'>
+                        Мои задачи
+                    </a>
+                </li>
+                <li class='main-menu-item' id='main-menu-item-calendar'>
+                    <a href='/calendar'>
+                        Календарь
+                    </a>
+                </li>
+                <li class='main-menu-item' id='main-menu-item-files'>
+                    <a href='/files' data-description="Файлы проектов">
+                        Файлы
+                    </a>
+                </li>
+                <li class='main-menu-item'>
+                    <a href='#' id='analytics' class='menu-title'>
+                            Аналитика
+                    </a>
+                    <div id='reportmenu-container'>
+                        <div id='reportmenu'>
+                            <ul id='analyticsMenu' class='top-submenu analytics-menu'>
+                                <li class='top-submenu-tail'>
+                                    <div class='top-submenu-tail-body'></div>
+                                </li>
+                                    <li class='top-submenu-item first'>
+                                        <a href='/time/bymember'>
+                                            Вклад участника в проекты
+                                        </a>
+                                    </li>
+                                    <li class='top-submenu-item'>
+                                        <a href='/time/byproject'>
+                                            Вклад участников в проект
+                                        </a>
+                                    </li>
+                                    <li class='top-submenu-item'>
+                                        <a href='/time/worklog'>
+                                            Журнал затраченного времени
+                                        </a>
+                                    </li>
+                                <li class='top-submenu-item '>
+                                    <a href='/analytics/task/execution'>
+                                        Контроль выполнения задач
+                                    </a>
+                                </li>
+                                <li class='top-submenu-item'>
+                                    <a href='/analytics/activity'>
+                                        Активность сотрудников
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class='main-menu-item' id='main-menu-item-company'>
+                    <a href='/company' data-description="Компания">Компания</a>
+                </li>
+            </ul>
+
+            <div class="main-menu">
+                <div class="search-block">
+                    <form id="searchForm" action="/search/byName">
+                        <input id="searchText" name="searchText" class="search-field"
+                            type="text" />
+                        <label for="searchText">
+                            <img id="searchIcon" class="search-icon" src="/Content/images/search.png" />
+                        </label>
+                    </form>
+                </div>
+            </div>
+
+                <div class="demo-block">
+                    <span class="demo-info">Демо-версия</span>
+                </div>
+        </div>
+    </div>
+    <div id="topPanel" style="position: fixed; display: none; top: 0px; left: 0px; width: 100%; background-color: #fff; z-index: 99; min-width: 800px;">
+        <table cellpadding="0" cellspacing="0" style="width: 100%;">
+            <tr>
+                <td style="width: 25%;"></td>
+                <td style="padding: 0 5px 0 2px; width: 40%;">
+                    <div id="menucontainer">
+                    </div>
+                </td>
+                <td class="userSection" style="vertical-align: middle; width: 15%;">
+                    <div style="display: block; white-space: nowrap">
+
+     
+        
+        
+        <div class="c-toggle-logon-menu icon-link-container" style="cursor: pointer;">
+            <span class="c-username-link username-link main-menu-additional-item">Роман</span>
+        </div>
+        
+        <div id="logonMenu" class="top-submenu top-submenu-logon hidden">
+            <div class="top-submenu-tail">
+                <div class="top-submenu-tail-body"></div>
+            </div>
+            <div class="top-submenu-item-box">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item first">
+                        <a class="ui-projectsmenu-item" href="/account/manage">Профиль</a>
+                    </div>
+                </div>
+            </div>
+            <div class="top-submenu-item-box">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item">
+                        <a class="ui-projectsmenu-item" href="/settings/company">Настройки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="top-submenu-item-box exit-button">
+                <div class="top-submenu-item-subbox">
+                    <div class="top-submenu-item last">
+                        <a class="ui-projectsmenu-item" href="/logout">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="page">
+        <div id="ListChangedIndicator" class="project-changed-indicator" style="display: none;">
+                Список задач изменён. Обновите страницу.
+            <div class="close-button-container">
+                <div class="close-indicator-button"></div>
+            </div>
+        </div>
+        <div id="AuthenticationDataChangedIndicator" class="project-changed-indicator" style="display: none;">
+            <span id="auth-data-changed-text"></span>
+            <div class="close-button-container">
+                <div id="close-auth-indicator-button" class="close-indicator-button"></div>
+            </div>
+        </div>
+        <div id="company-renamed-indicator" class="project-changed-indicator" style="display: none;">
+            Адрес компании изменён на <span id="company-new-address"></span>. Нажмите здесь, чтобы перейти на новый адрес.
+            <div class="close-button-container">
+                <div id="close-company-renamed-indicator-button" class="close-indicator-button"></div>
+            </div>
+        </div>
+        <div id="main">
+            
+
+
+<link href="/bundles/css/task.less?v=cPcEaskjDhWrzXExTxzwKyjUYTvPadiw87KNYhAOxP01" rel="stylesheet"/>
+<link href="/bundles/css/member.less?v=vq0MNqJVsKyxK6_BXhh-fjDxqScCJ63842EjgP03U8k1" rel="stylesheet"/>
+
+
+<link href="/bundles/css/worklog-editor.less?v=1C73G3zdd-OxDGuZg8tc5tf5PDvP2_PVlwxrnk4UJJU1" rel="stylesheet"/>
+
+
+<style>
+    .down-arrow {
+        background-image: url('/Content/images/down-arrow.png');
+    }
+    .member-profile {
+        background-image: url('/Content/images/profile.png');
+    }
+    .new-task-icon { 
+        background: url('/Content/images/green_plus.png') no-repeat;        
+    }
+    .task-panel, 
+    .selectable-group-list .view-group, 
+    .pull-and-push {
+        cursor: url('/Content/images/cursor-hand.png'),  default;
+    }
+    .scheduled-task-panel-container>.task-panel {
+        cursor: default;
+    }
+    .ui-sortable-helper .task-panel, 
+    .ui-sortable-helper .view-group, 
+    .completed-tasks-wrapper .task-panel,
+    .completed-tasks-wrapper .empty-completed-panel-container,
+    .pull-and-push.dragging {
+        cursor: url('/Content/images/cursor-fist.png'),  default;
+    }
+ </style>
+
+
+<div id="newRightPanel" class="right-panel-wrapper c-right-panel">
+    <div class="right-panel light-right-panel top-bottom-right-panel">
+
+<div class="right-panel-item">
+    <div class="member-photo  gray-border " id="member-data-photo">
+        
+        <img src="/member/photo/8af73410-5fe6-4a9d-9e4f-9a92b0049113?token=e8b378e3-f1ae-477a-815d-a17c317b32b7" alt="" />
+    </div>
+    
+    <h3 class="right-panel-header member-name next-photo-box">
+<a href="/account/manage">Роман</a>    </h3>
+
+</div>
+
+
+
+
+
+    </div>
+
+        <div class="right-panel light-right-panel top-bottom-right-panel">
+            <div class="worklog">
+<a class="worklog-time worklog-link" href="/time/worklog?memberId=8af73410-5fe6-4a9d-9e4f-9a92b0049113" id="TimeCurrentDay"> </a>            </div>
+
+            <div class="header-with-pseudo worklog-header">
+                <h3 class="right-panel-header">Внесенное время</h3>
+            </div>
+
+            
+        </div>
+
+    <div class="right-panel light-right-panel top-bottom-right-panel">
+        <div id="projectLists" class="member-projects c-member-projects">
+            <input id="MemberId" type="hidden" value=""/> 
+            <div class="project-section current-projects">
+                <span class="toggle-projects c-toggle-projects cursor-pointer project-link-active">спрятать</span>
+                <h3 class="right-panel-header">Текущие проекты</h3>
+                <div class="project-list">
+                    <div id="projectWithTasks" data-projectcount="0">
+                        <span class="project-info-message"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section active-projects">
+                <span class="toggle-projects c-toggle-projects cursor-pointer">показать</span>
+                <h3 class="right-panel-header">Активные проекты</h3>
+                <div id="activeProjects" class="project-list hidden" data-projectcount="1">
+                    <span class="project-info-message"></span>
+                        <div class="project-member-info c-project-member" highlight='false'>
+                            <input type="hidden" name="ProjectId" value="330edbdf-40a2-49ae-9084-4c8d77d362c9" />
+                            <input type="hidden" name="IsArchived" value="False" />
+                            <input type="hidden" name="ActiveTaskNumber" value="0" />
+                            <div class="wrapper-triangle">
+                                <div class="top-triangle"></div>
+                                <div class="bottom-triangle"></div>
+                            </div>
+                            <div class="project-name-wrapper">
+                                <div class="project-name">
+<a href="/project/rememberthebread">Планировщик задач</a>                                </div>
+                                <div class="hover-icons">
+                                        <div class="hover-icon" data-is-active="false" data-project-id="330edbdf-40a2-49ae-9084-4c8d77d362c9">
+                                            <div class="ico project-worklog c-project-worklog" title="Добавить время"></div>
+                                        </div>
+                                    <div class="highlight-button hover-icon" title="Выделить задачи проекта">
+                                        <div class="ico hand-pointer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="project-section archived-projects">
+                <span class="toggle-projects c-toggle-projects cursor-pointer">показать</span>
+                <h3 class="right-panel-header">Завершенные проекты</h3>
+                <div class="project-list hidden">
+                    <div id="archivedProjects" data-projectcount="1">
+                        <span class="project-info-message"></span>
+                            <div class="project-member-info c-project-member" highlight='false'>
+                                <input type="hidden" name="ProjectId" value="a99453f6-b9b8-42b6-8525-a6177a10b613" />
+                                <input type="hidden" name="IsArchived" value="True" />
+                                <input type="hidden" name="ActiveTaskNumber" value="0" />
+                                <div class="wrapper-triangle">
+                                    <div class="top-triangle"></div>
+                                    <div class="bottom-triangle"></div>
+                                </div>
+                                <div class="project-name-wrapper">
+                                    <div class="project-name">
+<a href="/project/quickstart">Демо Синкры</a>                                    </div>
+                                    <div class="hover-icons">
+                                            <div class="hover-icon" data-is-active="false" data-project-id="a99453f6-b9b8-42b6-8525-a6177a10b613">
+                                                <div class="ico project-worklog c-project-worklog" title="Добавить время"></div>
+                                            </div>
+                                        <div class="highlight-button hover-icon">
+                                            <div class="ico hand-pointer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div id="group-drag-mode-on" class="pseudo-link">
+            Изменить порядок групп
+        </div>
+        <div id="group-drag-mode-off" class="pseudo-link hidden">
+            Группы упорядочены
+        </div>
+    </div>
+</div>
+
+<div class="tasks-block">
+    <div id="tasklists-container">
+<div class="task-list-loader-container">
+    <div class="tasklist-loader"></div>
+</div>
+
+    </div>
+    <div class="group-operations hidden">
+        <span class="add-group-block c-create-task-group-view">Новая группа задач</span>
+        <div data-adding_now="false" id="ViewCreateTaskGroup" class="ViewCreateTaskGroup c-group-editor-container">
+        </div>
+    </div>
+</div>
+
+<script type="text/x-jqote-template" id="group-editor-template">
+    <![CDATA[
+        <form name="group-edit-form">
+            <input type="hidden" id="ProjectId" name="ProjectId" value="8af73410-5fe6-4a9d-9e4f-9a92b0049113" />
+            <* if (this.Id) { *>
+                <input type="hidden" value="<*= this.Id *>" name="GroupId" >
+            <* } *>
+            <div class="group-edit-block <*= this.Id ? '' : 'create-group-panel' *> new-task-panel">
+                <textarea id="Name" class="group-edit-name group-header taskeditor c-group-name-input" tabindex="1" maxlength="1024"></textarea>
+                <button class="button green-button task-text-save-button task-text-save-button create-task-group-submit" type="button">  
+                    <*= this.Id ? 'Сохранить' : 'Добавить группу' *>
+                </button>
+                <button class="label button-cancel create-task-group-cancel task-group-cancel-link c-cancel-group-edit" type="button">
+                    отмена
+                </button>
+            </div>
+            <div class="error validate-error"></div>
+        </form>
+     ]]>        
+</script>
+
+<script type="text/x-jqote-template" id="taskGroupTemplate">
+    <![CDATA[
+<div class='group-list' groupId="<*= this.Id *>">
+    <div class="group-header">
+        <div class="view-group c-view-group">
+            <span class="group-minimize-button c-minimize-group <*= this.IsMinimized ? 'group-minimized' : ''*>" 
+                    title="<*= this.IsMinimized ? 'Показать задачи группы' : 'Скрыть задачи группы'*>">
+                <span class="group-minimize-icon"></span>
+                <span class="group-name">
+                    <* if (this.Name == null) { *>
+                    <* } else { *>
+                        <*= this.Name *>
+                    <* } *>
+                </span>
+            </span>
+            <span class="group-hidden-name group-name">
+                <* if (this.Name == null) { *>
+                <* } else { *>
+                    <*= this.Name *>
+                <* } *>
+            </span>
+            <div class="group-commands-panel">
+                <div class="group-edit edit-icon" title="Редактировать"></div>
+                <* if (!this.IsDefault) { *>
+                    <div class="group-delete ico" title="Удалить"></div>
+                <* } *>
+            </div>
+            <div name="group-operation-indicator" class="group-operation-indicator"></div>
+        </div>
+        <div name='group-editor' class="c-group-editor-container view-group group-editor">
+        </div>
+    </div>
+
+    <div class="group-list-content <*= this.IsMinimized ? 'hidden' : 'tasks-shown'*>">
+        <div class="ViewCreateTaskLink InlineEditingPanel closedTasksLink" viewalltasks='false'>
+            <div class="pull-and-push <*= this.HasCompletedTasks ? '' : 'hidden' *>" 
+                name="displayClosedTasks" title="Показать завершённые задачи"></div>            
+            <div id="closedTaskLoadIndicator" class='ajaxloader ajax-loader-task hidden'></div>
+        </div>
+        <div class='taskgroup-list-completed' data-rowcount="<*= this.CountOfNotShownTasks *>">
+            <div class='c-completed-tasks-wrapper'>
+                <*= this.completedTaskList ? this.completedTaskList : '' *>
+            </div>
+        </div>
+        <div class='taskgroup-list'><*= this.taskList ? this.taskList : '' *></div>
+
+        <div class="task-panel-container">
+            <div class='task-panel new-task-panel c-new-task'>
+                <div class="с-new-task-icon new-task-icon"></div>Новая задача
+            </div>
+        </div>
+        <div name='create-task' class='create-task' ></div>
+    </div>
+</div>
+    ]]>
+</script>
+
+<script type="text/x-jqote-template" id="completed-task-group-template">
+    <![CDATA[
+        <div class="completed-group">
+            <div class="hover-icons">
+                <div data-task-group="moveToActiveGroup" id="<*= this.Id *>" class="arrow down-arrow" title="Переместить в активные"></div>
+            </div>
+            <div class="completed-group-panel">
+                <*= this.Name ? this.Name : ' ' *>
+            </div>
+        </div>
+        ]]>
+</script>
+
+<script type="text/x-jqote-template" id="task-group-view-template">
+    <![CDATA[
+        <div class="group-container">
+            <div class="group-header">
+                <div class="view-group">
+                    <span class="group-name"><*= this.Name ? this.Name : ' ' *></span>
+                </div>
+            </div>
+        </div>
+    ]]>
+</script>
+<script type="text/x-jqote-template" id="task-template"><![CDATA[
+<div name="task" class="task dropTarget task-panel-container c-task-panel-container
+    <*= this.IsCompleted ? 'c-completed-task-panel-container' : '' *>
+    <*= isNaN(this.Periodicity) ? '' : 'scheduled-task-panel-container c-scheduled-task-panel-container' *>
+    <*= this.IsEnabled ? 'enabled' : '' *>"
+    taskid="<*= this.Id *>"
+    <*= this.IsCompleted ? 'data-is-completed="true"' : '' *>>
+
+
+    <div name='view-task' class='view-task task-panel <*= this.IsCompleted ?'completed-task-panel':'' *>'>
+        <div class='task-codename'> <*= this.Number *> </div>
+        <div class='task-codename-placeholder'>&nbsp;</div>
+        <div class="hidden-commands-panel">
+            <div class="task-edit edit-icon" title="Редактировать"></div>
+        </div>
+        <div class="hidden-loader-panel">
+            <div name="ajaxloader" class="ajax-loader-task hidden"></div>
+        </div>
+        <a class="task-comments<*= this.CommentsUnread > 0 ? ' unread' : '' *> <*= this.CommentsCount == 0 ? 'hidden-content' : ''  *> <*= this.IsCompleted ? 'completed-task-comments' : ''  *>"
+            title="Комментарии <*= this.CommentsUnread > 0 ? ' (+' + this.CommentsUnread + ')' : '' *>"
+            href='/task<*= isNaN(this.Periodicity) ? '' : '-prototype' *>/<*= this.Project.CodeName *>-<*= this.Number *>'>
+            <span class="task-comments-text">
+                <*= this.CommentsCount *>
+            </span>
+            <span class="ico task-comments-icon">
+            </span>
+        </a>
+
+            
+        <div name="task-worklog" class="task-worklog ico" title="Добавить время">
+            <div class='worklog-editor worklog-task-editor c-worklog-editor hidden'></div>
+        </div>
+
+        <span class="active-time time-count" name="active-time" title="Добавить время">
+            <* if(this.ActiveTime != null && this.ActiveTime.trim() != '0:00') { *>
+                <*= this.ActiveTime *>
+            <* } *>
+        </span>
+
+        <* if(!this.IsCompleted) {*>
+            <span name="task-active" title="Начать задачу" class="ico task-active
+            <* if(this.IsActive) { *>
+                start
+            <* } else {*>
+                stop
+            <* } *>
+            <* if(this.ActiveTime != null && this.ActiveTime.trim() != '0:00') { *>
+                hasTime
+            <* } *>"
+            data-id="<*=this.Id *>">
+            </span>
+        <* } *>
+            
+
+        <div name="task-name" class="task-name">
+            <input id="checkbox-<*= this.Id *>" type="checkbox" <*= this.IsCompleted ? 'checked' : '' *> class="task-complete c-task-complete"
+                title="<*= this.IsCompleted ? 'Открыть задачу' : 'Закрыть задачу' *>" />
+            <div class="c-scheduled-task-toggle scheduled-task-toggle"
+                title="<*= SynkraGlobalContext.scheduledTaskToggleTitle[this.IsEnabled] *>" />
+            <div class="c-scheduled-task-generate scheduled-task-generate" title="Сгенерировать задачу" />
+            <span class="task-name-text taskName<* if(this.IsCompleted) {*><*= ' completed'*><*}*>"><*= this.Name *></span>
+            <span class="highlighter">
+                <*  if (this.TaskTags) {
+                        var tagsArray = this.TaskTags.split(',');
+                        for (var i = 0; i < tagsArray.length; i++) { *>
+                            <span class="tag tag-margin"><*= tagsArray[i] *></span>
+                <*  }
+                        }  *>
+            </span>
+                
+                    <* if (this.Project.Name) { *>
+                        <span class="task-assignee task-project c-task-assignee c-task-highlightable" highlight=''><*= this.Project.Name *></span>
+                    <* } *>
+                
+            <* if (this.Members && this.Members[0]) { *>
+
+                <span class="task-assignee c-task-highlightable" highlight='' >
+                                    </span>
+            <* } *>
+                
+                <* if (this.DeadlineDateString) { *>
+                    <button type="button" class='task-deadline <*= this.IsCompleted ? '' : this.DeadlineExpiredClass *>'>
+                        <span class="c-full-deadline display-none"><*= !this.DeadlineName ? this.DeadlineDateString : this.DeadlineName *> <*= this.DeadlineTime ? this.DeadlineTime : '' *></span>
+                        <* if (!this.hideDeadlineDate) { *>
+                            <span class="deadline-date"><*= !this.DeadlineName ? this.DeadlineDateString : this.DeadlineName *></span>
+                        <* } *>
+                        <span class="deadline-time"><*= this.DeadlineTime ? this.DeadlineTime : '' *></span>
+                    </button>
+                <* } *>
+                
+        </div>
+    </div>
+    <div name='task-editor' class='task-editor'></div>
+</div>
+]]>
+</script>
+
+
+<script type="text/x-jqote-template" id="newTaskEditTemplate" data-with-available-members="true"><![CDATA[
+    <div taskid="<*= this.Task.Id *>" groupid="<*= this.Task.GroupId *>"
+        class="ViewEditTaskPartial task-editor-container <*= this.Task.IsScheduledTask ? 'scheduled-task-editor' : '' *>">
+        <div name="edit-task-form" class="c-edit-task-form">
+            <input type="hidden" value="<*= this.Task.Id *>" name="Id" />
+            <input type="hidden" value="<*= this.Task.TaskTags *>" name="TaskTags" />
+            <input type="hidden" value="<*= this.Task.GroupId || '' *>" name="GroupId" />
+            <input type="hidden" value="<*= this.Task.IsScheduledTask ? SCHEDULED_TASKS_GROUP_ID : (this.Task.MemberGroupId || '') *>" name="MemberGroupId" />
+            <input type="hidden" value="<*= this.Task.IsCompleted || false *>" name="IsCompleted" />
+            <input type="hidden" value="<*= this.Task.Id == EMPTY_GUID ? "true" : "false" *>" name="dontHideForm" />
+            <input type="hidden" value="<*= this.Task.IsScheduledTask || false *>" name="IsScheduledTask" />
+
+            <div class="task-panel new-task-panel task-editor-panel">
+                <textarea name="Name" class="c-taskeditor taskeditor" tabindex="1" maxlength="1024">
+                </textarea>
+                <button class="button green-button task-text-save-button c-task-save-button" type="button">
+                    Сохранить
+                </button>
+            </div>
+    
+            <div class="task-info-editor c-task-info-editor <*= this.Task.IsScheduledTask ? 'c-scheduled-task-info-editor' : '' *>">
+                <* if (!this.UnchangeableResponsibleId) { *>
+                    <div class="task-info-editor-row">
+                        <div class="validation-message">
+                            <span class="c-validation-message"></span>
+                        </div>
+                        
+                        <* if (this.Task.Id != EMPTY_GUID) { *>
+                            <div class="ico task-delete c-task-delete" title="Удалить задачу">
+                            </div>
+                        <* } *>
+
+                        <span class="label">Исполнитель</span>
+
+
+                        <div class="responsible-id-select-container ">
+                            <select class="responsible-id-select " name="ResponsibleId" id="responsible-id-select"  tabindex="2">
+                                    <option value="<*= EMPTY_GUID *>"></option>
+                                <* for (member in this.AvailableResponsibleMembers) { *>
+                                    <* if (this.AvailableResponsibleMembers[member].Id) { *>
+                                        <option value="<*= this.AvailableResponsibleMembers[member].Id *>"><*= SynkraUi.htmlEncode(this.AvailableResponsibleMembers[member].ViewName) *></option>
+                                    <* } *>
+                                <* } *>
+                            </select>
+                        </div>
+
+                        <* if (this.AvailableResponsibleMembers && 
+                            $.map(this.AvailableResponsibleMembers, function(item, index) {return item.Id;}).indexOf('8af73410-5fe6-4a9d-9e4f-9a92b0049113') >= 0) { *>
+                            <div class="pseudo-link assign-to-me c-assign-task-to-me " currentMemberId='8af73410-5fe6-4a9d-9e4f-9a92b0049113'>Роман</div>
+                        <* } *>
+                    </div>
+                <* } else { *>
+                    <div class="responsible-id-select-container" style="display:none;">
+                        <input type="hidden" class="responsible-id-select" name="ResponsibleId" value="<*= this.Task.ResponsibleId *>" />
+                    </div>
+                <* } *>
+                <* if (this.Task.ProjectId != EMPTY_GUID) { *>
+                    <input type="hidden" value="<*= this.Task.ProjectId *>" name="ProjectId" />
+                <* } else { *>
+                    <div class="task-info-editor-row">
+                        <div class="validation-message">
+                            <span class="c-validation-message"></span>
+                        </div>
+                        <span class="label">Проект</span>
+<select id="ProjectId" name="ProjectId" tabindex="2"><option value="330edbdf-40a2-49ae-9084-4c8d77d362c9">Планировщик задач</option>
+</select>                        <* if (this.Task.IsScheduledTask && this.Task.Id == EMPTY_GUID) { *>
+                            <div class="task-info-editor-tip">
+                                Активируйте создание задач кнопкой <div class="scheduled-task-toggle"></div>
+                            </div>
+                        <* } *>
+                    </div>
+                <* } *>
+                <* if (!this.Task.IsScheduledTask) { *>
+	                <div class="task-info-editor-row">
+	                    <div class="c-remove-deadline remove-deadline">Без срока</div>
+                        <div class="deadline-container">
+                                
+                            <span class="label">Срок</span>
+                            <input type="text" value="<*= this.Task.DeadlineDateString *>" name="DeadlineDateString" class="c-fast-calendar-datepicker" tabindex="3"
+                                autocomplete="off" <*= this.UnchangeableDeadlineDate ? 'disabled' : '' *> />
+                                
+                        </div>
+                        <div class="fast-calendar c-fast-calendar">
+                        </div>
+	                </div>
+                <* } else { *>
+                    <div class="task-schedule-editor">
+                        <div class="task-info-editor-columns">
+                            <div class="task-info-editor-column task-info-editor-column-top task-schedule-left-column">
+                                <div class="task-info-editor-row no-padding">
+                                    <span class="label">Создавать</span>
+                                    <select name="Periodicity" class="task-periodicity c-task-periodicity" tabindex="3"></select>
+                                </div>
+                            </div>
+                            <div class="task-info-editor-column task-schedule-right-column">
+                                <div class="task-info-editor-row c-task-schedule-days-row">
+                                    <div class="task-schedule-days-calendar fast-calendar c-task-schedule-days-calendar">
+                                        <div class="remove-deadline c-task-schedule-clear-month-days">Очистить</div>
+                                        <div class="task-schedule-days-week c-task-schedule-days-week">
+                                            <span data-val="1" class="calendar-item day"><div class="day-value">пн</div></span>
+                                            <span data-val="2" class="calendar-item day"><div class="day-value">вт</div></span>
+                                            <span data-val="3" class="calendar-item day"><div class="day-value">ср</div></span>
+                                            <span data-val="4" class="calendar-item day"><div class="day-value">чт</div></span>
+                                            <span data-val="5" class="calendar-item day"><div class="day-value">пт</div></span>
+                                            <span data-val="6" class="calendar-item day weekend"><div class="day-value">сб</div></span>
+                                            <span data-val="0" class="calendar-item day weekend"><div class="day-value">вс</div></span>
+                                        </div>
+                                        <div class="task-schedule-days-month c-task-schedule-days-month"></div>
+                                    </div>
+                                    <input class="task-schedule-days-datepicker c-task-schedule-days-datepicker" tabindex="4"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-info-editor-row normal-word-spacing c-task-time-offset-row">
+                            <div class="task-time-offset fast-calendar c-task-time-offset">
+                                <span data-val="0" class="calendar-item day width-auto">в тот же день</span>
+                                <span data-val="1" class="calendar-item day width-auto">за сутки</span>
+                                <span data-val="2" class="calendar-item day width-auto">за 2 дня</span>
+                                <span data-val="3" class="calendar-item day width-auto">за неделю</span>
+                                <span data-val="4" class="calendar-item day width-auto">за месяц</span>
+                                <span data-val="5" class="calendar-item day width-auto">за 3 месяца</span>
+                                <span data-val="6" class="calendar-item day width-auto">за год</span>
+                            </div>
+                        </div>
+                    </div>
+                <* } *>
+                <div class="task-info-editor-row overflow-visible">
+                    <div class="label label-tags">Метки</div>
+                    <div class="wrapper-tags">
+                        <input name="tags" id="tags" tabindex="6"/>
+                        
+                        <div class="c-recent-tags recent-tags overflow-x-auto"></div>
+                    </div>
+                </div>
+                <* if (this.Task.IsScheduledTask && this.Task.Id == EMPTY_GUID && this.Task.ProjectId != EMPTY_GUID) { *>
+                    <div class="task-info-editor-row task-info-editor-tip">
+                        Активируйте создание задач кнопкой <div class="scheduled-task-toggle"></div>
+                    </div>
+                <* } *>
+            </div>
+        </div>
+    </div>
+]]></script>
+<script type="text/x-jqote-template" id="worklogEditTemplate">
+<![CDATA[
+<div data-worklog-id="<*= this.WorkLogId *>" class="ViewCreateWorkLogPartial task-editor-container">
+    <* if (this.WorkLogId) { *>
+        <input type="hidden" value="<*= this.WorkLogId *>" name="Id" >
+    <* } *>
+    <* if (this.TaskId) { *>
+        <input type="hidden" value="<*= this.TaskId *>" name="TaskId" >
+    <* } *>
+    <* if (this.TaskEncodedId) { *>
+        <input type="hidden" value="<*= this.TaskEncodedId *>" name="TaskEncodedId" >
+    <* } *>
+    <input type="hidden" value="<*= this.MemberId *>" name="MemberId" >
+    <* if (this.ProjectId) { *>
+        <input type="hidden" value="<*= this.ProjectId *>" name="ProjectId" >
+    <* } *>
+    <input type="hidden" value="<*= this.LogDate *>" name="OldLogDate" >
+
+        <div class="worklog-editor-arrow"></div>
+        
+        <* if (this.TotalTaskTime) { *>
+            <div class="worklog-editor-row">
+            Уже внесено
+            <div class="worklog-editor-input total-task-time">
+                <*= this.TotalTaskTime *>
+            </div>
+        </div>
+        <* } *>
+    
+        <div class="worklog-editor-row">
+            Дата
+            <div class="worklog-editor-input">
+                <input type="text" value="<*= this.LogDate *>" name="LogDate" autocomplete = "off"/>
+            </div>
+        </div>
+        
+        <div class="worklog-editor-row">
+            Затрачено
+            <div class="worklog-editor-input">
+                <input class="c-time-input" type="text" value="<*= this.TimeString ? this.TimeString : '' *>" name="TimeString" autocomplete = "off"/>
+            </div>        
+        </div>
+    
+        <div class="worklog-editor-row">
+            <div class="worklog-editor-input worklog-comment-input">
+                <input id="Comment" type="text" name="Comment" autocomplete="off" 
+                    placeholder="<*= this.WorkLogComment == null ? 'Комментарий' : '' *>" 
+                    value="<*= this.WorkLogComment == null ? '' : this.WorkLogComment *>" 
+                    maxlength="1024"/>
+            </div>
+        </div>
+    
+        <button type="button" id="edit-task" worklogid="<*= this.WorkLogId *>" 
+            class="button blue-button worklog-save-time c-worklog-save-time">
+            Внести время
+        </button>
+</div>
+]]>
+
+</script>
+
+<script type="text/x-jqote-template" id="selectOptionTemplate"><![CDATA[
+    <option value="<%= this.Id %>"><%= this.Name %></option>
+]]></script>
+
+        </div>
+<div id="error-box" class="error-box" style="display: none;">
+    
+    <span class="c-error-message-box"></span>
+</div>
+    </div>
+    <div id="footer" class="footer">
+    </div>
+    
+</body>
+</html>
