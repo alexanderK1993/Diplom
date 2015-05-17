@@ -16,8 +16,8 @@ create table Employees
 (
 	employeeId int identity primary key not null
 	,name nvarchar(32) not null
-	,family nvarchar(64) not null
-	,patronymic nvarchar(64) not null
+	,family nvarchar(64)
+	,patronymic nvarchar(64)
 	,mail nvarchar(64) not null
 	,passwordEmployee nvarchar(32) not null 
 )

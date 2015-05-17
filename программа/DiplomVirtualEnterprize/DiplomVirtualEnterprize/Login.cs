@@ -23,7 +23,7 @@ namespace DiplomVirtualEnterprize
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panelLogin_Paint(object sender, PaintEventArgs e)
@@ -39,6 +39,7 @@ namespace DiplomVirtualEnterprize
             labelRegistration.Visible = true;
             buttonRegistration.Visible = true;
             buttonEnter.Visible = false;
+            this.Text = "Регистрация";
         }
 
         private void linkLabelEnter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -49,19 +50,25 @@ namespace DiplomVirtualEnterprize
             labelRegistration.Visible = false;
             buttonRegistration.Visible = false;
             buttonEnter.Visible = true;
+            this.Text = "Вход в систему";
         }
 
         private void buttonRegistration_Click(object sender, EventArgs e)
-        {    
-            //отправляем письмо на почту с регистрационными данными
-            string body = "Благодарим за регистрацию в нашем сервисе <br />" +
-                "Ваш логин в системе:" + textBoxMail.Text + "<br />" +
-                "Ваш пароль:" + textBoxPassword.Text + "<br />" +
-            "Данное письмо создано и отправлено автоматически,на него не нужно отвечать";
-            mail.Send(login,pass, textBoxMail.Text, "регистрация в системе",body);
+        {
+            Data data = new Data();
+            if (data.Registration(textBoxMail.Text, textBoxPassword.Text) == true)
+            {
+                //отправляем письмо на почту с регистрационными данными
+                string body = "Благодарим за регистрацию в нашем сервисе <br />" +
+                    "Ваш логин в системе:" + textBoxMail.Text + "<br />" +
+                    "Ваш пароль:" + textBoxPassword.Text + "<br />" +
+                "Данное письмо создано и отправлено автоматически,на него не нужно отвечать";
+                mail.Send(login, pass, textBoxMail.Text, "регистрация в системе", body);
+            }
+            else
+            {
+                labelError.Visible = true;
+            }
         }
-
- 
-
     }
 }

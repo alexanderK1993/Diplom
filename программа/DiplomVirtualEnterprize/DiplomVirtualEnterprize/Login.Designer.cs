@@ -33,13 +33,14 @@
             this.MailLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.buttonRegistration = new System.Windows.Forms.Button();
             this.labelRegistration = new System.Windows.Forms.Label();
             this.linkLabelEnter = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabelRegistration = new System.Windows.Forms.LinkLabel();
             this.labelEnter = new System.Windows.Forms.Label();
             this.buttonEnter = new System.Windows.Forms.Button();
-            this.buttonRegistration = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,6 @@
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(142, 20);
             this.textBoxMail.TabIndex = 0;
-
             // 
             // textBoxPassword
             // 
@@ -88,6 +88,7 @@
             // panelLogin
             // 
             this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelLogin.Controls.Add(this.labelError);
             this.panelLogin.Controls.Add(this.buttonRegistration);
             this.panelLogin.Controls.Add(this.labelRegistration);
             this.panelLogin.Controls.Add(this.linkLabelEnter);
@@ -102,9 +103,23 @@
             this.panelLogin.ForeColor = System.Drawing.Color.Black;
             this.panelLogin.Location = new System.Drawing.Point(0, 1);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(333, 187);
+            this.panelLogin.Size = new System.Drawing.Size(323, 199);
             this.panelLogin.TabIndex = 4;
             this.panelLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogin_Paint);
+            // 
+            // buttonRegistration
+            // 
+            this.buttonRegistration.BackColor = System.Drawing.Color.Orange;
+            this.buttonRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRegistration.Location = new System.Drawing.Point(27, 136);
+            this.buttonRegistration.Name = "buttonRegistration";
+            this.buttonRegistration.Size = new System.Drawing.Size(238, 27);
+            this.buttonRegistration.TabIndex = 10;
+            this.buttonRegistration.Text = "Зарегестрировать компанию";
+            this.buttonRegistration.UseVisualStyleBackColor = false;
+            this.buttonRegistration.Visible = false;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
             // labelRegistration
             // 
@@ -179,25 +194,22 @@
             this.buttonEnter.Text = "Войти";
             this.buttonEnter.UseVisualStyleBackColor = false;
             // 
-            // buttonRegistration
+            // labelError
             // 
-            this.buttonRegistration.BackColor = System.Drawing.Color.Orange;
-            this.buttonRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRegistration.Location = new System.Drawing.Point(27, 136);
-            this.buttonRegistration.Name = "buttonRegistration";
-            this.buttonRegistration.Size = new System.Drawing.Size(238, 27);
-            this.buttonRegistration.TabIndex = 10;
-            this.buttonRegistration.Text = "Зарегестрировать компанию";
-            this.buttonRegistration.UseVisualStyleBackColor = false;
-            this.buttonRegistration.Visible = false;
-            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(6, 37);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(314, 13);
+            this.labelError.TabIndex = 11;
+            this.labelError.Text = "Указанный почтовый ящик уже зарегистрирован в системе";
+            this.labelError.Visible = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 180);
+            this.ClientSize = new System.Drawing.Size(324, 198);
             this.Controls.Add(this.panelLogin);
             this.Name = "Login";
             this.ShowIcon = false;
@@ -223,5 +235,6 @@
         private System.Windows.Forms.Label labelRegistration;
         private System.Windows.Forms.LinkLabel linkLabelEnter;
         private System.Windows.Forms.Button buttonRegistration;
+        private System.Windows.Forms.Label labelError;
     }
 }
