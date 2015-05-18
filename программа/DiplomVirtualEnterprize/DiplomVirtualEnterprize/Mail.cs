@@ -7,25 +7,22 @@ namespace DiplomVirtualEnterprize
     {
         private string smtp = "smtp.mail.ru";
         private string from = "VirtualEnterprize@mail.ru";
+        private string password = "19930511q";
         private string subject = "";
         private string to = "";
         private string body = "";
-        private string login = "";
-        private string password = "";
+        private string login = "VirtualEnterprize@mail.ru";
+       
 
         /// <summary>
         /// Отправляет письмо
         /// </summary>
-        /// <param name="login">Почта с который будет отправляться</param>
-        /// <param name="password">пароль от почты</param>
         /// <param name="sendTo">адресат письма</param>
         /// <param name="subject">тема письма</param>
         /// <param name="body">содержание письма в формате html</param>
-        public void Send(string login, string password, string sendTo, string subject, string body)
+        public void Send(string sendTo, string subject, string body)
         {
             this.from = login;
-            this.login = login;
-            this.password = password;
             this.to = sendTo;
             this.body = body;
             this.subject = subject;

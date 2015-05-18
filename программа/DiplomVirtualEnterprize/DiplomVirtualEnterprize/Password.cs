@@ -2,9 +2,9 @@
 namespace DiplomVirtualEnterprize
 {
     /// <summary>
-    /// 
+    /// Класс для генерации паролей
     /// </summary>
-    class Password
+   public class Password
     {
         /// <summary>
         /// Сгенерировать случайный пароль

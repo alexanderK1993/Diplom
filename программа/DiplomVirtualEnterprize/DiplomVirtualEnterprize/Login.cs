@@ -12,6 +12,7 @@ namespace DiplomVirtualEnterprize
 {
     public partial class Login : Form
     {
+        Data data = new Data();
         Mail mail = new Mail();
         Password password = new Password();
         const string login = "VirtualEnterprize@mail.ru";
@@ -54,8 +55,7 @@ namespace DiplomVirtualEnterprize
         }
 
         private void buttonRegistration_Click(object sender, EventArgs e)
-        {
-            Data data = new Data();
+        {            
             if (data.Registration(textBoxMail.Text, textBoxPassword.Text) == true)
             {
                 //отправляем письмо на почту с регистрационными данными
@@ -63,11 +63,22 @@ namespace DiplomVirtualEnterprize
                     "Ваш логин в системе:" + textBoxMail.Text + "<br />" +
                     "Ваш пароль:" + textBoxPassword.Text + "<br />" +
                 "Данное письмо создано и отправлено автоматически,на него не нужно отвечать";
-                mail.Send(login, pass, textBoxMail.Text, "регистрация в системе", body);
+                mail.Send(textBoxMail.Text, "регистрация в системе", body);
             }
             else
             {
                 labelError.Visible = true;
+            }
+        }
+
+        private void buttonEnter_Click(object sender, EventArgs e)
+        {
+            if (data.Login(textBoxMail.Text, textBoxPassword.Text) > 0)
+            {
+                FormMain formMain = new FormMain();
+                this.Hide();
+                formMain.SetLogin(textBoxMail.Text);
+                formMain.Show();
             }
         }
     }

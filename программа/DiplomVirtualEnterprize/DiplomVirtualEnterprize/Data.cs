@@ -4,28 +4,44 @@ namespace DiplomVirtualEnterprize
 {
     class Data
     {
-        private string dataSource;
-        private string initialCatalog;
-        private string integratedSecurity;
-        private string userID = "";
-        private string password = "";
+        /// <summary>
+        /// Строка соединения с сервером
+        /// </summary>
         private static readonly string ConnectionString = @"Data Source=USER-ПК\SQLEXPRESS;Initial Catalog=virtual_enterprise;Integrated security=true";
-        public bool Registration(string login, string password)
+        public int Login(string mail, string password)
         {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-             connection.Open();
-             string findMail = @"select count (mail)
+            int findEmployee=0;
+           
+                using (var connection = new SqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    using (var cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = @"select count (employeeId)
                                 from employees
-                                where mail=@mail";
-                int countMail;
-                using (var cmd = new SqlCommand(findMail, connection))
-                {
-                    cmd.Parameters.AddWithValue("@mail", login);
-                    countMail=(int)cmd.ExecuteScalar();
+                                where mail=@mail and passwordEmployee=@password";
+                        cmd.Parameters.AddWithValue("@mail", mail);
+                        cmd.Parameters.AddWithValue("@password", password);
+                    findEmployee = (int)cmd.ExecuteScalar();
+                    }
                 }
-                if (countMail == 0)
+                return findEmployee;
+            }
+            
+        
+        /// <summary>
+        /// Регистрация компании в системе
+        /// </summary>
+        /// <param name="mail">почта</param>
+        /// <param name="password">пароль</param>
+        /// <returns>возвращает true если регистрация успешна</returns>
+        public bool Registration(string mail, string password)
+        {
+            if (FindMail(mail) == false)
+            {
+                using (var connection = new SqlConnection(ConnectionString))
                 {
+                    connection.Open();
                     using (var cmd = connection.CreateCommand())
                     {
                         cmd.CommandText = @"
@@ -43,15 +59,43 @@ namespace DiplomVirtualEnterprize
                                 ,@name
                                 )
                     ";
-                        cmd.Parameters.AddWithValue("@mail", login);
+                        cmd.Parameters.AddWithValue("@mail", mail);
                         cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@name", login);
+                        cmd.Parameters.AddWithValue("@name", mail);
                         cmd.ExecuteNonQuery();
                     }
                     return true;
                 }
-                else return false;
             }
+            else return false;
+        }
+        /// <summary>
+        /// Ищет конкретный адрес в базе данных
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <returns>возвращает true если адрес найден</returns>
+        public bool FindMail(string mail)
+        {
+            bool mailFind = false;
+            int countMail;
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                string findMail = @"select count (mail)
+                                from employees
+                                where mail=@mail";
+                using (var cmd = new SqlCommand(findMail, connection))
+                {
+                    cmd.Parameters.AddWithValue("@mail", mail);
+                    countMail = (int)cmd.ExecuteScalar();
+                }
+            }
+
+            if (countMail > 0)
+            {
+                mailFind = true;
+            }
+            return mailFind;
         }
     }
 }

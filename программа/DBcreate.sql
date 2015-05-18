@@ -98,4 +98,14 @@ alter table	Subscription
 	constraint FK_idFellowEmployee
     foreign key  (idFellowEmployee)
 	references Employees(employeeId)
-	on delete cascade			
+	on delete cascade	
+	
+alter table	Dialogue
+	add	constraint FK_idFirstEmployee
+	foreign key(idFirstEmployee) 
+	references Employees(employeeId)
+	on delete no action,
+	constraint FK_idSecondEmployee
+    foreign key  (idSecondEmployee)
+	references Employees(employeeId)
+	on delete cascade				
