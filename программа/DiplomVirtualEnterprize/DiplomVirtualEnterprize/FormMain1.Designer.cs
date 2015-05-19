@@ -1,6 +1,6 @@
 ﻿namespace DiplomVirtualEnterprize
 {
-    partial class FormMain
+    partial class FormMain1
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelProject = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panelNewEmployee = new System.Windows.Forms.Panel();
@@ -50,38 +51,31 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.menuStripMainMenu = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItemProject = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemTask = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemMessage = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAnalytic = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemCompany = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemNameEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.необходимоВыполнитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.моиЗадачиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.личныеСообщенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.подпискиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отправитьСообщениеПодписчикамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.проектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemProject = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAnalytic = new System.Windows.Forms.ToolStripMenuItem();
             this.вкладУчастникаВПроектыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вкладУчастниковВПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemCompany = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemNameEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.профильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.проектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMyTask = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.label16 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelProject.SuspendLayout();
             this.panelNewEmployee.SuspendLayout();
             this.panelEmployee.SuspendLayout();
@@ -107,6 +101,18 @@
             this.panelProject.Name = "panelProject";
             this.panelProject.Size = new System.Drawing.Size(206, 84);
             this.panelProject.TabIndex = 3;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(33, 58);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(48, 13);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Диплом";
             // 
             // label1
             // 
@@ -161,7 +167,6 @@
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Отменить";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonInvite
             // 
@@ -171,7 +176,6 @@
             this.buttonInvite.TabIndex = 4;
             this.buttonInvite.Text = "Пригласить";
             this.buttonInvite.UseVisualStyleBackColor = true;
-            this.buttonInvite.Click += new System.EventHandler(this.buttonInvite_Click);
             // 
             // textBoxMail
             // 
@@ -212,7 +216,6 @@
             this.linkLabelInviteEmployee.TabIndex = 0;
             this.linkLabelInviteEmployee.TabStop = true;
             this.linkLabelInviteEmployee.Text = "Пригласить нового сотрудника";
-            this.linkLabelInviteEmployee.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelInviteEmployee_LinkClicked);
             // 
             // label2
             // 
@@ -264,7 +267,6 @@
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(620, 625);
             this.panelEmployee.TabIndex = 9;
-            this.panelEmployee.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEmployee_Paint);
             // 
             // label10
             // 
@@ -317,7 +319,14 @@
             this.menuStripMainMenu.Size = new System.Drawing.Size(826, 29);
             this.menuStripMainMenu.TabIndex = 10;
             this.menuStripMainMenu.Text = "menuStrip1";
-            this.menuStripMainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
+            // 
+            // toolStripMenuItemProject
+            // 
+            this.toolStripMenuItemProject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripMenuItemProject.ForeColor = System.Drawing.Color.AliceBlue;
+            this.toolStripMenuItemProject.Name = "toolStripMenuItemProject";
+            this.toolStripMenuItemProject.Size = new System.Drawing.Size(79, 25);
+            this.toolStripMenuItemProject.Text = "Проект";
             // 
             // ToolStripMenuItemTask
             // 
@@ -325,11 +334,27 @@
             this.необходимоВыполнитьToolStripMenuItem,
             this.моиЗадачиToolStripMenuItem});
             this.ToolStripMenuItemTask.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToolStripMenuItemTask.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ToolStripMenuItemTask.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.ToolStripMenuItemTask.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.ToolStripMenuItemTask.Name = "ToolStripMenuItemTask";
             this.ToolStripMenuItemTask.Size = new System.Drawing.Size(79, 25);
             this.ToolStripMenuItemTask.Text = "Задачи";
+            // 
+            // необходимоВыполнитьToolStripMenuItem
+            // 
+            this.необходимоВыполнитьToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.необходимоВыполнитьToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
+            this.необходимоВыполнитьToolStripMenuItem.Name = "необходимоВыполнитьToolStripMenuItem";
+            this.необходимоВыполнитьToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.необходимоВыполнитьToolStripMenuItem.Text = "Необходимо выполнить";
+            // 
+            // моиЗадачиToolStripMenuItem
+            // 
+            this.моиЗадачиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.моиЗадачиToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
+            this.моиЗадачиToolStripMenuItem.Name = "моиЗадачиToolStripMenuItem";
+            this.моиЗадачиToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.моиЗадачиToolStripMenuItem.Text = "Мои задачи";
             // 
             // ToolStripMenuItemMessage
             // 
@@ -343,57 +368,6 @@
             this.ToolStripMenuItemMessage.Name = "ToolStripMenuItemMessage";
             this.ToolStripMenuItemMessage.Size = new System.Drawing.Size(114, 25);
             this.ToolStripMenuItemMessage.Text = "Сообщения";
-            // 
-            // ToolStripMenuItemAnalytic
-            // 
-            this.ToolStripMenuItemAnalytic.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вкладУчастникаВПроектыToolStripMenuItem,
-            this.вкладУчастниковВПроектToolStripMenuItem});
-            this.ToolStripMenuItemAnalytic.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToolStripMenuItemAnalytic.ForeColor = System.Drawing.Color.AliceBlue;
-            this.ToolStripMenuItemAnalytic.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.ToolStripMenuItemAnalytic.Name = "ToolStripMenuItemAnalytic";
-            this.ToolStripMenuItemAnalytic.Size = new System.Drawing.Size(107, 25);
-            this.ToolStripMenuItemAnalytic.Text = "Аналитика";
-            // 
-            // ToolStripMenuItemCompany
-            // 
-            this.ToolStripMenuItemCompany.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToolStripMenuItemCompany.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.ToolStripMenuItemCompany.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.ToolStripMenuItemCompany.Name = "ToolStripMenuItemCompany";
-            this.ToolStripMenuItemCompany.Size = new System.Drawing.Size(102, 25);
-            this.ToolStripMenuItemCompany.Text = "Компания";
-            // 
-            // ToolStripMenuItemNameEmployee
-            // 
-            this.ToolStripMenuItemNameEmployee.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.профильToolStripMenuItem,
-            this.toolStripMenuItem3});
-            this.ToolStripMenuItemNameEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToolStripMenuItemNameEmployee.ForeColor = System.Drawing.Color.AliceBlue;
-            this.ToolStripMenuItemNameEmployee.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.ToolStripMenuItemNameEmployee.Name = "ToolStripMenuItemNameEmployee";
-            this.ToolStripMenuItemNameEmployee.Size = new System.Drawing.Size(170, 25);
-            this.ToolStripMenuItemNameEmployee.Text = "Имя пользователя";
-            // 
-            // необходимоВыполнитьToolStripMenuItem
-            // 
-            this.необходимоВыполнитьToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.необходимоВыполнитьToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
-            this.необходимоВыполнитьToolStripMenuItem.Name = "необходимоВыполнитьToolStripMenuItem";
-            this.необходимоВыполнитьToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.необходимоВыполнитьToolStripMenuItem.Text = "Необходимо выполнить";
-            this.необходимоВыполнитьToolStripMenuItem.Click += new System.EventHandler(this.необходимоВыполнитьToolStripMenuItem_Click);
-            // 
-            // моиЗадачиToolStripMenuItem
-            // 
-            this.моиЗадачиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.моиЗадачиToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
-            this.моиЗадачиToolStripMenuItem.Name = "моиЗадачиToolStripMenuItem";
-            this.моиЗадачиToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.моиЗадачиToolStripMenuItem.Text = "Мои задачи";
-            this.моиЗадачиToolStripMenuItem.Click += new System.EventHandler(this.моиЗадачиToolStripMenuItem_Click);
             // 
             // личныеСообщенияToolStripMenuItem
             // 
@@ -419,21 +393,17 @@
             this.отправитьСообщениеПодписчикамToolStripMenuItem.Size = new System.Drawing.Size(369, 26);
             this.отправитьСообщениеПодписчикамToolStripMenuItem.Text = "Отправить сообщение подписчикам";
             // 
-            // проектToolStripMenuItem
+            // ToolStripMenuItemAnalytic
             // 
-            this.проектToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.проектToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
-            this.проектToolStripMenuItem.Name = "проектToolStripMenuItem";
-            this.проектToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
-            this.проектToolStripMenuItem.Text = "Проект";
-            // 
-            // toolStripMenuItemProject
-            // 
-            this.toolStripMenuItemProject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.toolStripMenuItemProject.ForeColor = System.Drawing.Color.AliceBlue;
-            this.toolStripMenuItemProject.Name = "toolStripMenuItemProject";
-            this.toolStripMenuItemProject.Size = new System.Drawing.Size(79, 25);
-            this.toolStripMenuItemProject.Text = "Проект";
+            this.ToolStripMenuItemAnalytic.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вкладУчастникаВПроектыToolStripMenuItem,
+            this.вкладУчастниковВПроектToolStripMenuItem});
+            this.ToolStripMenuItemAnalytic.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolStripMenuItemAnalytic.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ToolStripMenuItemAnalytic.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.ToolStripMenuItemAnalytic.Name = "ToolStripMenuItemAnalytic";
+            this.ToolStripMenuItemAnalytic.Size = new System.Drawing.Size(107, 25);
+            this.ToolStripMenuItemAnalytic.Text = "Аналитика";
             // 
             // вкладУчастникаВПроектыToolStripMenuItem
             // 
@@ -451,6 +421,27 @@
             this.вкладУчастниковВПроектToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.вкладУчастниковВПроектToolStripMenuItem.Text = "Вклад участников в проект";
             // 
+            // ToolStripMenuItemCompany
+            // 
+            this.ToolStripMenuItemCompany.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolStripMenuItemCompany.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ToolStripMenuItemCompany.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.ToolStripMenuItemCompany.Name = "ToolStripMenuItemCompany";
+            this.ToolStripMenuItemCompany.Size = new System.Drawing.Size(102, 25);
+            this.ToolStripMenuItemCompany.Text = "Компания";
+            // 
+            // ToolStripMenuItemNameEmployee
+            // 
+            this.ToolStripMenuItemNameEmployee.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.профильToolStripMenuItem,
+            this.toolStripMenuItem3});
+            this.ToolStripMenuItemNameEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolStripMenuItemNameEmployee.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ToolStripMenuItemNameEmployee.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.ToolStripMenuItemNameEmployee.Name = "ToolStripMenuItemNameEmployee";
+            this.ToolStripMenuItemNameEmployee.Size = new System.Drawing.Size(218, 25);
+            this.ToolStripMenuItemNameEmployee.Text = "redfenix1993@gmail.com";
+            // 
             // профильToolStripMenuItem
             // 
             this.профильToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -466,177 +457,108 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(154, 26);
             this.toolStripMenuItem3.Text = "Выход";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // проектToolStripMenuItem
+            // 
+            this.проектToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.проектToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
+            this.проектToolStripMenuItem.Name = "проектToolStripMenuItem";
+            this.проектToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
+            this.проектToolStripMenuItem.Text = "Проект";
             // 
             // panelMyTask
             // 
-            this.panelMyTask.Controls.Add(this.label19);
-            this.panelMyTask.Controls.Add(this.label18);
-            this.panelMyTask.Controls.Add(this.label17);
+            this.panelMyTask.Controls.Add(this.checkBox2);
+            this.panelMyTask.Controls.Add(this.checkBox1);
             this.panelMyTask.Controls.Add(this.label15);
-            this.panelMyTask.Controls.Add(this.linkLabel4);
-            this.panelMyTask.Controls.Add(this.linkLabel5);
             this.panelMyTask.Controls.Add(this.label16);
             this.panelMyTask.Controls.Add(this.label14);
             this.panelMyTask.Controls.Add(this.label13);
             this.panelMyTask.Controls.Add(this.label12);
-            this.panelMyTask.Controls.Add(this.linkLabel3);
-            this.panelMyTask.Controls.Add(this.linkLabel2);
             this.panelMyTask.Controls.Add(this.label11);
-            this.panelMyTask.Controls.Add(this.button2);
             this.panelMyTask.Location = new System.Drawing.Point(1, 32);
             this.panelMyTask.Name = "panelMyTask";
             this.panelMyTask.Size = new System.Drawing.Size(825, 668);
             this.panelMyTask.TabIndex = 13;
-            this.panelMyTask.Visible = false;
-            this.panelMyTask.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMyTask_Paint);
             // 
-            // label11
+            // checkBox2
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(33, 82);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(274, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Изучить основные возможности работы с задачами";
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(7, 54);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 18;
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // checkBox1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(33, 58);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(48, 13);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Диплом";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(590, 83);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(58, 13);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Изменить";
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(661, 83);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(50, 13);
-            this.linkLabel3.TabIndex = 5;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Удалить";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(33, 39);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Название задачи";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(350, 41);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Срок выполнения";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(397, 82);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "--";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(7, 28);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(381, 58);
+            this.label15.Location = new System.Drawing.Point(457, 29);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(36, 13);
             this.label15.TabIndex = 13;
             this.label15.Text = "1 мая";
             // 
-            // linkLabel4
-            // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(661, 60);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(50, 13);
-            this.linkLabel4.TabIndex = 12;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Удалить";
-            // 
-            // linkLabel5
-            // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(590, 60);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(58, 13);
-            this.linkLabel5.TabIndex = 11;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Изменить";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(33, 59);
+            this.label16.Location = new System.Drawing.Point(29, 30);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(115, 13);
             this.label16.TabIndex = 10;
             this.label16.Text = "Написать программу";
             // 
-            // button2
+            // label14
             // 
-            this.button2.Location = new System.Drawing.Point(36, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Добавить задачу";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(473, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(13, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "--";
             // 
-            // label17
+            // label13
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(475, 41);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 13);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "Исполнитель";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(426, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Срок выполнения";
             // 
-            // label18
+            // label12
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(478, 59);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 13);
-            this.label18.TabIndex = 15;
-            this.label18.Text = "Александр";
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(29, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Название задачи";
             // 
-            // label19
+            // label11
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(478, 83);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 13);
-            this.label19.TabIndex = 16;
-            this.label19.Text = "Александр";
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(29, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(274, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Изучить основные возможности работы с задачами";
             // 
-            // FormMain
+            // FormMain1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -647,11 +569,9 @@
             this.Controls.Add(this.panelProject);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStripMainMenu);
-            this.Name = "FormMain";
+            this.Name = "FormMain1";
             this.ShowIcon = false;
-            this.Text = "Компания";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Text = "Мои задачи";
             this.panelProject.ResumeLayout(false);
             this.panelProject.PerformLayout();
             this.panelNewEmployee.ResumeLayout(false);
@@ -709,20 +629,14 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Panel panelMyTask;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

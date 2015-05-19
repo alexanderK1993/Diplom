@@ -12,6 +12,8 @@ namespace DiplomVirtualEnterprize
 {
     public partial class Login : Form
     {
+     
+        
         Data data = new Data();
         Mail mail = new Mail();
         Password password = new Password();
@@ -24,7 +26,7 @@ namespace DiplomVirtualEnterprize
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panelLogin_Paint(object sender, PaintEventArgs e)
