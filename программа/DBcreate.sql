@@ -39,6 +39,7 @@ idProject int identity primary key not null
 create table Tasks(
 taskId int identity primary key not null
 ,name nvarchar(128) not null
+,dataCreation datetime not null
 ,deadline datetime
 ,percentageCompletition int
 ,idExecutor int
@@ -108,4 +109,7 @@ alter table	Dialogue
 	constraint FK_idSecondEmployee
     foreign key  (idSecondEmployee)
 	references Employees(employeeId)
-	on delete cascade				
+	on delete cascade
+	
+
+ 			
