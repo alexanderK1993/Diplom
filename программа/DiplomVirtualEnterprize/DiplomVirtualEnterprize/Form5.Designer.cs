@@ -256,9 +256,17 @@
             reportDataSource1.Value = this.Table2BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "DiplomVirtualEnterprize.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(28, 101);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 101);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.ShowBackButton = false;
+            this.reportViewer1.ShowContextMenu = false;
+            this.reportViewer1.ShowDocumentMapButton = false;
+            this.reportViewer1.ShowFindControls = false;
+            this.reportViewer1.ShowPageNavigationControls = false;
+            this.reportViewer1.ShowProgress = false;
+            this.reportViewer1.ShowRefreshButton = false;
+            this.reportViewer1.ShowStopButton = false;
+            this.reportViewer1.Size = new System.Drawing.Size(725, 571);
             this.reportViewer1.TabIndex = 30;
             // 
             // Table2BindingSource
@@ -269,12 +277,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 382);
+            this.ClientSize = new System.Drawing.Size(737, 670);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStripMainMenu);
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.ShowIcon = false;
+            this.Text = "Вклад участников в проект";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.menuStripMainMenu.ResumeLayout(false);
             this.menuStripMainMenu.PerformLayout();
