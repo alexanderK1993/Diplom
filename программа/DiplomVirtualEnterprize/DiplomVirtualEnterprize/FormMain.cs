@@ -63,7 +63,7 @@ namespace DiplomVirtualEnterprize
         {
             Mail mail = new Mail();
             Password password=new Password();
-            string pass = password.GeneratePassword();
+            string pass = password.GeneratePassword(8);
             if (data.Registration(textBoxMail.Text, pass) == true)
             {
                 //отправляем письмо на почту с регистрационными данными

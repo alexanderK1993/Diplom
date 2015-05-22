@@ -8,6 +8,13 @@ namespace DiplomVirtualEnterprize
         /// Строка соединения с сервером
         /// </summary>
         private static readonly string ConnectionString = @"Data Source=USER-ПК\SQLEXPRESS;Initial Catalog=virtual_enterprise;Integrated security=true";
+       
+        /// <summary>
+        /// Авторизация на сервере
+        /// </summary>
+        /// <param name="mail">электронная почта</param>
+        /// <param name="password">пароль</param>
+        /// <returns>если возвращается 1 значит соединение успешно установлено</returns>
         public int Login(string mail, string password)
         {
             int findEmployee=0;
@@ -18,8 +25,8 @@ namespace DiplomVirtualEnterprize
                     using (var cmd = connection.CreateCommand())
                     {
                         cmd.CommandText = @"select count (employeeId)
-                                from employees
-                                where mail=@mail and passwordEmployee=@password";
+                                            from employees
+                                            where mail=@mail and passwordEmployee=@password";
                         cmd.Parameters.AddWithValue("@mail", mail);
                         cmd.Parameters.AddWithValue("@password", password);
                     findEmployee = (int)cmd.ExecuteScalar();
@@ -69,10 +76,11 @@ namespace DiplomVirtualEnterprize
             }
             else return false;
         }
+
         /// <summary>
         /// Ищет конкретный адрес в базе данных
         /// </summary>
-        /// <param name="mail"></param>
+        /// <param name="mail">почта</param>
         /// <returns>возвращает true если адрес найден</returns>
         public bool FindMail(string mail)
         {

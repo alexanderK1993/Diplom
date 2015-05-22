@@ -6,20 +6,21 @@ namespace DiplomVirtualEnterprize
     /// </summary>
    public class Password
     {
-        /// <summary>
+       /// <summary>
+        ///  /// <summary>
         /// Сгенерировать случайный пароль
-        /// </summary>
-        /// <returns></returns>
-            public string GeneratePassword()
+       /// </summary>
+       /// <param name="lenght">длина пароля</param>
+        /// <returns>возвращает сгенирированный пароль</returns>
+            public string GeneratePassword(int lenght)
             {
-                // сделаем длину пароля в 8 символов
-                int[] arr = new int[8]; 
+                int[] arr = new int[lenght]; 
                 Random rnd = new Random();
                 string Password = "";
 
                 for (int i = 0; i < arr.Length; i++)
                 {
-                   //генерируем случайное число и заменяем на символ
+                   //генерируем случайное число и заменяем на символ согласно таблице ASC
                     arr[i] = rnd.Next(48, 122);
                     Password += (char)arr[i];
                 }

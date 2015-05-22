@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panelProject = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,20 +75,20 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label22 = new System.Windows.Forms.Label();
             this.panelProject.SuspendLayout();
             this.panelNewEmployee.SuspendLayout();
             this.panelEmployee.SuspendLayout();
             this.menuStripMainMenu.SuspendLayout();
             this.panelMyTask.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Gold;
-            this.panel2.Location = new System.Drawing.Point(2, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(825, 3);
-            this.panel2.TabIndex = 2;
             // 
             // panelProject
             // 
@@ -468,6 +467,14 @@
             // 
             // panelMyTask
             // 
+            this.panelMyTask.Controls.Add(this.linkLabel3);
+            this.panelMyTask.Controls.Add(this.label22);
+            this.panelMyTask.Controls.Add(this.linkLabel2);
+            this.panelMyTask.Controls.Add(this.label21);
+            this.panelMyTask.Controls.Add(this.label20);
+            this.panelMyTask.Controls.Add(this.label17);
+            this.panelMyTask.Controls.Add(this.label18);
+            this.panelMyTask.Controls.Add(this.label19);
             this.panelMyTask.Controls.Add(this.checkBox2);
             this.panelMyTask.Controls.Add(this.checkBox1);
             this.panelMyTask.Controls.Add(this.label15);
@@ -504,7 +511,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(457, 29);
+            this.label15.Location = new System.Drawing.Point(426, 29);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(36, 13);
             this.label15.TabIndex = 13;
@@ -523,7 +530,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(473, 53);
+            this.label14.Location = new System.Drawing.Point(442, 53);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(13, 13);
             this.label14.TabIndex = 8;
@@ -532,19 +539,21 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(426, 12);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(395, 12);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 13);
+            this.label13.Size = new System.Drawing.Size(112, 13);
             this.label13.TabIndex = 7;
             this.label13.Text = "Срок выполнения";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label12.Location = new System.Drawing.Point(29, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.Size = new System.Drawing.Size(110, 13);
             this.label12.TabIndex = 6;
             this.label12.Text = "Название задачи";
             // 
@@ -558,6 +567,82 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Изучить основные возможности работы с задачами";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(578, 28);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Диплом";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(578, 53);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 20;
+            this.label18.Text = "Диплом";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(576, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "Проект";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(646, 10);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(127, 13);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "потраченное время ";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(646, 29);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "20";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(682, 28);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(57, 13);
+            this.linkLabel2.TabIndex = 24;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Добавить";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(682, 53);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(57, 13);
+            this.linkLabel3.TabIndex = 26;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Добавить";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(646, 53);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(19, 13);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "15";
+            // 
             // FormMain1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,7 +652,6 @@
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelNewEmployee);
             this.Controls.Add(this.panelProject);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStripMainMenu);
             this.Name = "FormMain1";
             this.ShowIcon = false;
@@ -589,7 +673,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelProject;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
@@ -637,6 +720,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }
 

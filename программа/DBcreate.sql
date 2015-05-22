@@ -1,3 +1,15 @@
+/*   Тема дипломного проекта: Разработка программных средств 
+	 обеспечивающих функционирование виртуального предприятия 
+	 Студент: Кирюшин А.В.
+	 Специальность 230105, группа 043.
+	 Руководитель проекта: доктор техн. наук,профессор кафедры ИИБМТ  Антипов В.А.
+	 Средство разработки: Microsoft Visual Studio 2013 Professional,
+	 Microsoft SQL server 2008
+	 Назначение:
+	 Дата разработки: 01.05.2015.
+	 Программное обеспечение
+*/
+
 use master;
 
 if DB_ID ('virtual_enterprise') IS NOT NULL
@@ -41,7 +53,7 @@ taskId int identity primary key not null
 ,name nvarchar(128) not null
 ,dataCreation datetime not null
 ,deadline datetime
-,percentageCompletition int
+,wastedTime int
 ,idExecutor int
 ,idProject int not null
 )
@@ -59,40 +71,67 @@ idSubscription int identity primary key not null
 )
 create table Dialogue(
 idDialogue int identity primary key not null
-,idFirstEmployee int not null
-,idSecondEmployee int not null
+,idDialogueEmployee int not null
+)
+
+create table DialogueEmployee(
+idDialogueEmployee int identity primary key not null
+,idDialogue int not null
+,idEmployee int not null
+)
+
+create table TimeOnProject(
+id int identity primary key not null
+,[date] date not null
+,idEmployee int not null
+,idProject int not null
+,countTime int not null
 )
 
 alter table	CompanyEmployee	
 	add	constraint FK_IdEmployee
 	foreign key(idEmployee) 
 	references Employees(employeeId)
-	on delete cascade,
+	on delete cascade
+	on update cascade,
 	constraint FK_idVE
     foreign key  (idVE)
 	references virtualEnterprise(idVE)
-	on delete cascade	
+	on delete cascade
+	on update cascade	
 			
 alter table	Project	
 	add	constraint FK_project_IdVE
 	foreign key(idVE) 
 	references virtualEnterprise(idVE)
 	on delete cascade
+
+alter table TimeOnProject
+	add constraint FK_project
+	foreign key(idProject) 
+	references Project(idProject)
+	on delete cascade
+	on update cascade,	
+	constraint FK_employee
+	foreign key(idEmployee) 
+	references Employees(employeeId)
+	on delete cascade
+	on update cascade
 	
 alter table	Tasks	
-	add	constraint FK_idProject
+	add	constraint FK_Project_contain
 	foreign key(idProject) 
 	references Project(idProject)
 	on delete cascade
 	
 alter table	Mesage	
-	add	constraint FK_idDialogue
+	add	constraint FK_Dialogue_contains
 	foreign key(idDialogue) 
 	references Dialogue(idDialogue)
 	on delete cascade	
 	
 alter table	Subscription
-	add	constraint FK_idSignedEmployee
+	add	constraint FK_Employee_signed
 	foreign key(idSignedEmployee) 
 	references Employees(employeeId)
 	on delete no action,
@@ -102,13 +141,16 @@ alter table	Subscription
 	on delete cascade	
 	
 alter table	Dialogue
-	add	constraint FK_idFirstEmployee
-	foreign key(idFirstEmployee) 
+	add	constraint FK_DialogueEmployee
+	foreign key(idDialogueEmployee) 
+	references DialogueEmployee(idDialogueEmployee)
+	on delete cascade
+	
+alter table	DialogueEmployee
+	add	constraint FK_employee_spent
+	foreign key(idEmployee) 
 	references Employees(employeeId)
-	on delete no action,
-	constraint FK_idSecondEmployee
-    foreign key  (idSecondEmployee)
-	references Employees(employeeId)
+	on update cascade
 	on delete cascade
 	
 
