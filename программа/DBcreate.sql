@@ -50,18 +50,21 @@ idProject int identity primary key not null
 
 create table Tasks(
 taskId int identity primary key not null
+,idAuthor int not null
 ,name nvarchar(128) not null
 ,dataCreation datetime not null
 ,deadline datetime
 ,wastedTime int
 ,idExecutor int
 ,idProject int not null
+,isTaskComplete bit
 )
 
 create table Mesage(
 idMessage int identity primary key not null
 ,content nvarchar(1024) not null
 ,idDialogue int not null
+,dateStart datetime not null
 )
 
 create table Subscription(
@@ -73,13 +76,10 @@ create table Dialogue(
 idDialogue int identity primary key not null
 ,idDialogueEmployee int not null
 )
-
 create table DialogueEmployee(
 idDialogueEmployee int identity primary key not null
-,idDialogue int not null
 ,idEmployee int not null
 )
-
 create table TimeOnProject(
 id int identity primary key not null
 ,[date] date not null
@@ -87,6 +87,16 @@ id int identity primary key not null
 ,idProject int not null
 ,countTime int not null
 )
+create table PostSubscription(
+idPostSubscription int identity primary key not null
+,[content] nvarchar(1024) not null
+,dateStart datetime not null
+,idSubscription int not null
+)
+alter table	PostSubscription	
+	add	constraint FK_come
+	foreign key(idSubscription) 
+	references Subscription(idSubscription)
 
 alter table	CompanyEmployee	
 	add	constraint FK_IdEmployee
@@ -122,7 +132,16 @@ alter table	Tasks
 	add	constraint FK_Project_contain
 	foreign key(idProject) 
 	references Project(idProject)
+	on delete cascade,
+	constraint FK_author_task
+	foreign key(idAuthor)
+	references Employee(employeeId)
+	on delete no action,
+	constraint FK_executor_task
+	foreign key(idExecutor)
+	references Employee(employeeId)
 	on delete cascade
+	on update cascade
 	
 alter table	Mesage	
 	add	constraint FK_Dialogue_contains

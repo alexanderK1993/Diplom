@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DiplomVirtualEnterprize.Data">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAACBEAgAAkBgAAAAEAAAARFCIAAAAAKAQAAAEIAA=</HashCode>
+      <FileName>Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomVirtualEnterprize.Mail">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAIABAAAAAAAAEAAAAiAAQAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Mail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiplomVirtualEnterprize.Password">
+    <Position X="2.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DiplomVirtualEnterprize.CurrentWindow">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAQAAAAAAAgQAAwAgAAFBAAAAAE=</HashCode>
+      <FileName>CurrentWindow.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

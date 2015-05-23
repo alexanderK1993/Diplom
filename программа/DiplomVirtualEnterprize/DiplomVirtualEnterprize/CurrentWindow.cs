@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace DiplomVirtualEnterprize
 {
+
     public enum CurrentWindow
     {
         Company,
         NeedCompleteTask,
-        MyTasks
+        MyTasks,
+        Chat,
+        AllEmployees,
+        MyDialogues,
+        Subscriptions,
+        SendMessageSubscription,
+        ProjectParticipant,
+        ContributionToProject,
+        Settings
     }
 }
