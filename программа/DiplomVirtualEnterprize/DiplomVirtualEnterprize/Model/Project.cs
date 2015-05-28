@@ -13,7 +13,7 @@ namespace DiplomVirtualEnterprize.Model
         /// <summary>
         /// Устанавливает и возвращает Имя проекта
         /// </summary>
-        public int Name { set; get; }
+        public string Name { set; get; }
         /// <summary>
         /// Устанавливает и возвращает срок завершения проекта
         /// </summary>

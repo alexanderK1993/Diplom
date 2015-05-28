@@ -26,6 +26,6 @@ namespace DiplomVirtualEnterprize.Model
         /// <summary>
         /// Устанавливает и возвращает дату отправки
         /// </summary>
-        public DateTime dateStart { set; get; }
+        public DateTime DateStart { set; get; }
     }
 }

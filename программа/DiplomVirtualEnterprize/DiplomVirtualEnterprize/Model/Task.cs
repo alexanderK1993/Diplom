@@ -17,7 +17,7 @@ namespace DiplomVirtualEnterprize.Model
         /// <summary>
         /// Устанавливает и возвращает дата создания
         /// </summary>
-        public string DataCreation { set; get; }
+        public DateTime? DataCreation { set; get; }
         /// <summary>
         /// Устанавливает и возвращает срок завершения
         /// </summary>
@@ -34,6 +34,14 @@ namespace DiplomVirtualEnterprize.Model
         /// Устанавливает и возвращает код проекта
         /// </summary>
         public int IdProject { set; get; }
+       /// <summary>
+        /// Устанавливает и возвращает флаг выполнения задачи
+       /// </summary>
+       public bool isTaskComplete{ set; get; }
+       /// <summary>
+       /// Устанавливает и возвращает автора задачи
+       /// </summary>
+       public int Author { set; get; }
 
     }
 }

@@ -77,7 +77,7 @@ namespace DiplomVirtualEnterprize
         {
             if (data.Login(textBoxMail.Text, textBoxPassword.Text) > 0)
             {
-                FormMain formMain = new FormMain();
+                MainMenu formMain = new MainMenu();
                 this.Hide();
                 formMain.SetLogin(textBoxMail.Text);
                 formMain.Show();

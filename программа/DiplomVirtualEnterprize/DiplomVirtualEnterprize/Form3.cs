@@ -26,7 +26,7 @@ namespace DiplomVirtualEnterprize
          
             this.reportViewer1.RefreshReport();
         }
-        private static readonly string ConnectionString = @"Data Source=USER-ПК\SQLEXPRESS;Initial Catalog=virtual_enterprise;Integrated security=true";
+       
         private void button1_Click(object sender, EventArgs e)
         {
         

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace DiplomVirtualEnterprize
 {
-    public partial class FormMain : Form
+    public partial class MainMenu : Form
     {
         CurrentWindow currentWindow;
         Data data = new Data();
         private string login = null;
-        public FormMain()
+        public MainMenu()
         {
             InitializeComponent();
         }
@@ -29,6 +29,11 @@ namespace DiplomVirtualEnterprize
         {          
             ToolStripMenuItemNameEmployee.Text = login;
             currentWindow = CurrentWindow.Company;
+            data.AddTask("333", DateTime.Now, 1, 1,1);
+            data.ChangeTask(2, null, 1, 1);
+            data.ChangeStatusTask(2);
+            data.FindAllProject(0);
+            data.FindAllEmployee(1);
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)

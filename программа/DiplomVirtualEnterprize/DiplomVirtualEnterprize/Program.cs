@@ -16,7 +16,7 @@ namespace DiplomVirtualEnterprize
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain1());
+            Application.Run(new Login());
         }
     }
 }

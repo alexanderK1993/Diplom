@@ -333,7 +333,7 @@
             // 
             // TableBindingSource
             // 
-            this.TableBindingSource.DataSource = typeof(DiplomVirtualEnterprize.Table);
+            //this.TableBindingSource.DataSource = typeof(DiplomVirtualEnterprize.Table);
             // 
             // Form3
             // 

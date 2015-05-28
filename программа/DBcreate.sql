@@ -93,6 +93,22 @@ idPostSubscription int identity primary key not null
 ,dateStart datetime not null
 ,idSubscription int not null
 )
+
+create table ParticipantProject(
+idParticipantProject int identity primary key not null,
+idEmployee int not null,
+idProject int not null
+)
+alter table	ParticipantProject	
+	add	constraint FK_participant_project
+	foreign key(idProject) 
+	references Project(idProject)
+	on delete cascade,
+	constraint FK_participant_employee
+	foreign key(idEmployee) 
+	references employees(employeeId)
+	on delete cascade
+
 alter table	PostSubscription	
 	add	constraint FK_come
 	foreign key(idSubscription) 
@@ -135,11 +151,11 @@ alter table	Tasks
 	on delete cascade,
 	constraint FK_author_task
 	foreign key(idAuthor)
-	references Employee(employeeId)
+	references Employees(employeeId)
 	on delete no action,
 	constraint FK_executor_task
 	foreign key(idExecutor)
-	references Employee(employeeId)
+	references Employees(employeeId)
 	on delete cascade
 	on update cascade
 	

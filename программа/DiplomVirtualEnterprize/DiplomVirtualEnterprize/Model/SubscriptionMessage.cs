@@ -22,10 +22,10 @@ namespace DiplomVirtualEnterprize.Model
         /// <summary>
         /// Дата отправки
         /// </summary>
-        public DateTime dateStart { set; get; }
+        public DateTime DateStart { set; get; }
         /// <summary>
         /// Код подписки
         /// </summary>
-        public int idSubscription { set; get; }
+        public int IdSubscription { set; get; }
     }
 }

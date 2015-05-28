@@ -1,6 +1,6 @@
 ﻿namespace DiplomVirtualEnterprize
 {
-    partial class FormMain
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -67,6 +67,9 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.проектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMyTask = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -81,9 +84,6 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panelProject.SuspendLayout();
             this.panelNewEmployee.SuspendLayout();
             this.panelEmployee.SuspendLayout();
@@ -500,6 +500,34 @@
             this.panelMyTask.Visible = false;
             this.panelMyTask.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMyTask_Paint);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(573, 83);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(48, 13);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "Диплом";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(573, 59);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 13);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Диплом";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.Location = new System.Drawing.Point(570, 41);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 13);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Проект";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -636,35 +664,7 @@
             this.button2.Text = "Добавить задачу";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(573, 83);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(48, 13);
-            this.label20.TabIndex = 19;
-            this.label20.Text = "Диплом";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(573, 59);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 13);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Диплом";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.Location = new System.Drawing.Point(570, 41);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(50, 13);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Проект";
-            // 
-            // FormMain
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -674,7 +674,7 @@
             this.Controls.Add(this.panelNewEmployee);
             this.Controls.Add(this.panelProject);
             this.Controls.Add(this.menuStripMainMenu);
-            this.Name = "FormMain";
+            this.Name = "MainMenu";
             this.ShowIcon = false;
             this.Text = "Компания";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
